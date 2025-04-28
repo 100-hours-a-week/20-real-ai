@@ -8,5 +8,9 @@ async def get_chatbot_response(request: ChatRequest):
     """
     챗봇 응답 생성 API
     """
-    # TODO: 추후 서비스 로직 연결 예정
-    return ChatResponse(answer="This is a dummy chatbot response.")
+    user_message = request.message
+
+    # 간단한 Echo 응답
+    response_text = f"네가 보낸 메시지는: {user_message}"
+
+    return ChatResponse(answer=response_text)
