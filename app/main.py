@@ -1,16 +1,21 @@
 from fastapi import FastAPI
-from app.api.main import api_router
+from app.api.router import api_router
+from app.core.error_handler import add_exception_handlers
 
-app = FastAPI(
-    title="Internal Chatbot API",
-    version="0.1.0",
-    description="Chatbot + Notice summarization API server"
-)
+app = FastAPI()
 
-# 라우터 등록
+# 전체 API 라우터 등록
 app.include_router(api_router)
 
-# 기본 루트 엔드포인트
+# 예외 핸들러 등록
+add_exception_handlers(app)
+
+# 루트 엔드포인트 추가
 @app.get("/")
-async def root():
-    return {"message": "Welcome to the Internal Chatbot API!"}
+def read_root():
+    return {"message": "Hello, this is the 20-real-ai server. API is running."}
+
+# 헬스 체크 엔드포인트
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
