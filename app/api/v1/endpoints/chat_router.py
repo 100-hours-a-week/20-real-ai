@@ -1,16 +1,9 @@
 from fastapi import APIRouter
 from app.schemas.chat_schema import ChatRequest, ChatResponse
+from app.api.v1.controllers.chat_controller import chat_response
 
 router = APIRouter()
 
-@router.post("/chatbots", response_model=ChatResponse, tags=["Chatbot"])
-async def get_chatbot_response(request: ChatRequest):
-    """
-    챗봇 응답 생성 API
-    """
-    user_message = request.message
-
-    # 간단한 Echo 응답
-    response_text = f"네가 보낸 메시지는: {user_message}"
-
-    return ChatResponse(answer=response_text)
+@router.post("/chatbots", response_model=ChatResponse)
+def chat_endpoint(request: ChatRequest):
+    return chat_response(request)

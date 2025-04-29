@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 class ChatRequest(BaseModel):
-    message: str
+    question: str
 
 class ChatResponse(BaseModel):
     answer: str
