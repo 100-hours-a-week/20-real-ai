@@ -17,3 +17,4 @@ langchain-community
 vllm
 transformers
 sentence-transformers
+faiss-cpu
