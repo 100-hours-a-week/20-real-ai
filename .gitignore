@@ -18,3 +18,9 @@ venv/
 
 # dotenv
 .env
+
+# LangChain vectorstore
+vector/
+
+# Logs
+*.log
