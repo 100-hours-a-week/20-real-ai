@@ -1,7 +1,7 @@
 import os
 from google.cloud import storage
 from langchain_community.vectorstores import FAISS
-from core.embedding_model import embedder
+from app.core.embedding_model import embedder
 
 # 환경변수 또는 config.py에서 관리할 수도 있음
 GCS_BUCKET = "your-bucket-name"  # TODO: 실제 GCS 버킷 이름으로 교체
