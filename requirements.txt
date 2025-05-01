@@ -18,3 +18,4 @@ vllm
 transformers
 sentence-transformers
 faiss-cpu
+google-cloud-storage
