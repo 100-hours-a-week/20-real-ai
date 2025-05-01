@@ -23,4 +23,4 @@ def download_faiss_from_gcs():
 
 def load_vectorstore():
     download_faiss_from_gcs()
-    return FAISS.load_local(LOCAL_INDEX_DIR, embedding=embedder)
+    return FAISS.load_local(LOCAL_INDEX_DIR, embeddings=embedder)
