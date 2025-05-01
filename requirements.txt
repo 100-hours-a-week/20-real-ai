@@ -16,3 +16,4 @@ langchain
 langchain-community
 vllm
 transformers
+sentence-transformers
