@@ -4,7 +4,7 @@ from langchain_community.vectorstores import FAISS
 from app.core.embedding_model import embedder
 
 # 환경변수 또는 config.py에서 관리할 수도 있음
-GCS_BUCKET = "your-bucket-name"  # TODO: 실제 GCS 버킷 이름으로 교체
+GCS_BUCKET = "choon-assistance-ai-bucket"
 GCS_PREFIX = "vector/faiss_index"
 LOCAL_INDEX_DIR = "/tmp/faiss_index"
 
