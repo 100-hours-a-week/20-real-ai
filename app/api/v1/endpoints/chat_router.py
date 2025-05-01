@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 from app.schemas.chat_schema import ChatRequest, ChatResponse
-from app.api.v1.controllers.chat_controller import chat_response
-from typing import Dict, Any
+from app.api.v1.controllers.chat_controller import chat_controller
 
 router = APIRouter()
 
-@router.post("/chatbots", response_model=Dict[str, Any])
+@router.post("/chatbots", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
-    return await chat_response(request)
+    return await chat_controller(request)
