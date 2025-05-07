@@ -22,7 +22,7 @@ splitter = RecursiveCharacterTextSplitter(
 chunks = splitter.split_documents(docs)
 
 # 3. 벡터스토어 생성
-vectorstore = FAISS.from_documents(chunks, embedding=embedder)
+vectorstore = FAISS.from_documents(chunks, embeddings=embedder)
 
 # 4. 로컬 저장
 INDEX_SAVE_PATH = "vector/faiss_index"
