@@ -26,8 +26,8 @@ chat_prompt_template = """
 9. 문서 내 관련 내용을 빠짐없이 응답한다.
 
 [Context]:
-{{context}}
+{context}
 
 [Question]:
-{{question}}
+{question}
 """
