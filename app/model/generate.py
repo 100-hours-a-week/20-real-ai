@@ -1,7 +1,9 @@
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnableLambda
-from app.model.qwen2_5_loader import llm
+from app.model.qwen2_5_loader import llm, tokenizer
 
-def generate_response(prompt: str) -> str:
-    chain = RunnableLambda(lambda x: prompt) | llm | StrOutputParser()
-    return chain.invoke({})
+async def generate_response(prompt: str) -> str:
+    messages = [
+        {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. Please respond only in Korean."},
+        {"role": "user", "content": prompt}
+    ]
+    prompt_str = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    return await llm.ainvoke(prompt_str)
