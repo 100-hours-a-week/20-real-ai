@@ -1,16 +1,24 @@
-from app.model.generate import generate_response
+import json
+from app.core.llm_client import call_qwen
+from app.model.prompt_template import discord_news_prompt
 
-async def summarize_discord_news_service(title: str | None, content: str) -> tuple[str, str]:
-    # 제목이 없다면 content 일부를 headline에 사용
-    if title:
-        headline_prompt = f"[헤드라인 생성]\n{title}"
-    else:
-        headline_prompt = f"[헤드라인 생성]\n{content[:30]}..."
+def summarize_discord_news_service(title: str | None, content: str) -> tuple[str, str]:
+    # 1. 템플릿 적용
+    prompt = discord_news_prompt.format(docs=content)
 
-    summary_prompt = f"[요약 생성]\n{content}"
+    isCompleted = True
+    # 2. LLM 호출
+    response = call_qwen(prompt)
 
-    # 현재는 dummy 응답으로 처리
-    headline = await generate_response(headline_prompt)
-    summary = await generate_response(summary_prompt)
+    # 3. JSON 파싱
+    try:
+        parsed = json.loads(response)
+        headline = parsed.get("headline", "")
+        summary = parsed.get("summary", "")
+    except json.JSONDecodeError:
+        # JSON 파싱 실패 시 fallback 처리
+        isCompleted = False
+        headline = "헤드라인 없음"
+        summary = "요약 생성 실패"
 
-    return headline, summary
+    return headline, summary, isCompleted

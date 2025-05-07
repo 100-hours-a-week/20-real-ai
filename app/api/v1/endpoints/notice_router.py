@@ -1,10 +1,11 @@
 from fastapi import APIRouter
 from app.schemas.notice_schema import NoticeRequest, NoticeResponse
 from app.api.v1.controllers.notice_controller import summarize_notice
-from typing import Dict, Any
 
 router = APIRouter()
 
-@router.post("/notices/summarization", response_model=Dict[str, Any])
-async def notice_endpoint(request: NoticeRequest):
-    return await summarize_notice(request)
+# 공지사항 요약 API 엔드포인트
+@router.post("/notices/summarization", response_model=NoticeResponse)
+def notice_endpoint(request: NoticeRequest):
+    # 공지 요약 컨트롤러 호출
+    return summarize_notice(request)

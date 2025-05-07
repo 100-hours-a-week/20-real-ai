@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from app.core.embedding_model import embedder
+from app.core.embedding_model import get_embedder
 
 import os
 
@@ -22,7 +22,8 @@ splitter = RecursiveCharacterTextSplitter(
 chunks = splitter.split_documents(docs)
 
 # 3. 벡터스토어 생성
-vectorstore = FAISS.from_documents(chunks, embeddings=embedder)
+embedder = get_embedder()
+vectorstore = FAISS.from_documents(chunks, embedding=embedder)
 
 # 4. 로컬 저장
 INDEX_SAVE_PATH = "vector/faiss_index"

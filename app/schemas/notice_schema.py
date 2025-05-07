@@ -4,7 +4,10 @@ class NoticeRequest(BaseModel):
     title: str
     content: str
 
-class NoticeResponse(BaseModel):
-    title: str
-    content: str
+class NoticeData(BaseModel):
     summary: str
+    isCompleted: bool
+
+class NoticeResponse(BaseModel):
+    message: str
+    data: NoticeData

@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# CORS 설정
 origins = [
     "http://test.kakaotech.com",
     "https://dev.kakaotech.com",
@@ -12,6 +13,7 @@ origins = [
     "https://kakaotech.com"
 ]
 
+# CORS 미들웨어 등록
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
