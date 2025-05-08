@@ -3,8 +3,10 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+# 앱에 공통 예외 핸들러 등록 함수
 def add_exception_handlers(app: FastAPI):
     
+    # HTTPException (ex. raise HTTPException(status_code=404)) 처리
     @app.exception_handler(StarletteHTTPException)
     async def http_exception_handler(request: Request, exc: StarletteHTTPException):
         return JSONResponse(
@@ -15,6 +17,7 @@ def add_exception_handlers(app: FastAPI):
             }
         )
 
+    # 입력 유효성 검증 실패 (ex. Pydantic 유효성 검사 실패)
     @app.exception_handler(RequestValidationError)
     async def validation_exception_handler(request: Request, exc: RequestValidationError):
         return JSONResponse(
@@ -25,6 +28,7 @@ def add_exception_handlers(app: FastAPI):
             }
         )
 
+    # 정의되지 않은 일반 예외 처리 (ex. 코드 에러, 서버 에러 등)
     @app.exception_handler(Exception)
     async def general_exception_handler(request: Request, exc: Exception):
         return JSONResponse(

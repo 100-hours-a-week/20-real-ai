@@ -1,13 +1,14 @@
 import os
 from google.cloud import storage
 from langchain_community.vectorstores import FAISS
-from app.core.embedding_model import embedder
+from app.core.embedding_model import get_embedder
 
-# 환경변수 또는 config.py에서 관리할 수도 있음
+# Google Cloud Storage 설정
 GCS_BUCKET = "choon-assistance-ai-bucket"
 GCS_PREFIX = "vector/faiss_index"
 LOCAL_INDEX_DIR = "/tmp/faiss_index"
 
+# GCS에서 FAISS 인덱스 파일들 다운로드
 def download_faiss_from_gcs():
     client = storage.Client()
     bucket = client.bucket(GCS_BUCKET)
@@ -21,6 +22,12 @@ def download_faiss_from_gcs():
         filename = os.path.basename(blob.name)
         blob.download_to_filename(os.path.join(LOCAL_INDEX_DIR, filename))
 
+# FAISS 벡터스토어 로딩 (GCS에서 받아온 인덱스 기반)
 def load_vectorstore():
     download_faiss_from_gcs()
-    return FAISS.load_local(LOCAL_INDEX_DIR, embeddings=embedder, allow_dangerous_deserialization=True)
+    embedder = get_embedder()
+    return FAISS.load_local(
+        LOCAL_INDEX_DIR,
+        embeddings=embedder,
+        allow_dangerous_deserialization=True
+    )
