@@ -11,8 +11,7 @@ tokenizer = AutoTokenizer.from_pretrained(
 llm = LLM(
     model="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8",
     dtype="auto",
-    trust_remote_code=True,
-    gpu_memory_utilization=0.5
+    trust_remote_code=True
 )
 
 sampling_params = SamplingParams(

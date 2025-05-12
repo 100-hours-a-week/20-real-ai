@@ -30,7 +30,7 @@ Link:가 없다면 이 문장은 포함하지 마세요.
 {context}
 
 [Question]:
-{user_question}
+{question}
 """
 
 discord_news_prompt = """
