@@ -1,7 +1,6 @@
 from app.model.qwen2_5_loader import tokenizer, llm, sampling_params
 from app.model.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
-import asyncio
 
 # 시스템 메시지
 SYSTEM_MESSAGE = "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. Please respond only in Korean."
@@ -27,14 +26,11 @@ def build_prompt(user_input: str, context: str = "") -> str:
 
 # 공통 LLM 호출 유틸 함수
 async def llm_generate(prompt_str: str, request_id: str) -> str:
-    def _generate():
-        outputs = llm.generate(prompt_str, sampling_params, request_id)
-        if len(outputs) == 0:
-            return 'empty:' + prompt_str
-        else:
-            return outputs[0].outputs[0].text
-
-    return await asyncio.to_thread(_generate)
+    outputs = llm.generate(prompt_str, sampling_params, request_id=request_id)
+    async for output in outputs:
+        return output.outputs[0].text
+    
+    return 'empty:' + prompt_str
 
 # 챗봇: 문서 검색 기반 비동기 응답
 async def get_chat_response(question: str, request_id:str) -> str:
