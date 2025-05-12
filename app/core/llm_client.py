@@ -26,15 +26,18 @@ def build_prompt(user_input: str, context: str = "") -> str:
     )
 
 # 공통 LLM 호출 유틸 함수
-async def llm_generate(prompt_str: str) -> str:
+async def llm_generate(prompt_str: str, request_id: str) -> str:
     def _generate():
-        outputs = llm.generate(prompt_str, sampling_params)
-        return outputs[0].outputs[0].text
+        outputs = llm.generate(prompt_str, sampling_params, request_id)
+        if len(outputs) == 0:
+            return 'empty:' + prompt_str
+        else:
+            return outputs[0].outputs[0].text
 
     return await asyncio.to_thread(_generate)
 
 # 챗봇: 문서 검색 기반 비동기 응답
-async def get_chat_response(question: str) -> str:
+async def get_chat_response(question: str, request_id:str) -> str:
     docs = retriever.get_relevant_documents(question)
     context = "\n\n".join([doc.page_content for doc in docs])
 
@@ -42,9 +45,9 @@ async def get_chat_response(question: str) -> str:
     prompt = chatbot_rag_prompt.format(context=context, question=question)
     prompt_str = build_prompt(prompt)
 
-    return await llm_generate(prompt_str)
+    return await llm_generate(prompt_str, request_id)
 
 # 요약/뉴스 생성: 단일 프롬프트 호출
 async def call_qwen(prompt: str) -> str:
     prompt_str = build_prompt(prompt)
-    return await llm_generate(prompt_str)
+    return await llm_generate(prompt_str) # llm.inovoke(p)

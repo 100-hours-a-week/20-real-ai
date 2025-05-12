@@ -1,4 +1,4 @@
-from vllm import LLM, SamplingParams
+from vllm import LLM, SamplingParams, AsyncEngineArgs, AsyncLLMEngine
 from transformers import AutoTokenizer
 
 # 토크나이저 로딩 (프롬프트용 메시지 생성에 사용)
@@ -7,12 +7,20 @@ tokenizer = AutoTokenizer.from_pretrained(
     trust_remote_code=True
 )
 
-# Qwen2.5-7B-Instruct 모델 로딩 (vLLM 사용)
-llm = LLM(
+# # Qwen2.5-7B-Instruct 모델 로딩 (vLLM 사용)
+# llm = LLM(
+#     model="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8",
+#     dtype="auto",
+#     trust_remote_code=True
+# )
+
+engine_args = AsyncEngineArgs(
     model="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8",
-    dtype="auto",
-    trust_remote_code=True
+    # gpu_memory_utilization=0.95,
+    tensor_parallel_size=1
 )
+
+llm = AsyncLLMEngine.from_engine_args(engine_args)
 
 sampling_params = SamplingParams(
     temperature=0.3,           # 답변 다양성 (우린 정보형 챗봇이라 높을 필요없음)
