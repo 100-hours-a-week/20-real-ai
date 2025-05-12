@@ -8,7 +8,7 @@ async def summarize_notice_service(title: str, content: str) -> str:
 
     isCompleted = True
     # LLM 응답 호출
-    response = call_qwen(prompt)
+    response = await call_qwen(prompt)
 
     # JSON 파싱
     try:
@@ -18,4 +18,4 @@ async def summarize_notice_service(title: str, content: str) -> str:
         isCompleted = False
         summary = "요약 생성 실패"
     
-    return await summary, isCompleted
+    return summary, isCompleted

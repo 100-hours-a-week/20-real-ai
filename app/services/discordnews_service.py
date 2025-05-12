@@ -8,7 +8,7 @@ async def summarize_discord_news_service(title: str | None, content: str) -> tup
 
     isCompleted = True
     # 2. LLM 호출
-    response = call_qwen(prompt)
+    response = await call_qwen(prompt)
 
     # 3. JSON 파싱
     try:
@@ -21,4 +21,4 @@ async def summarize_discord_news_service(title: str | None, content: str) -> tup
         headline = "헤드라인 없음"
         summary = "요약 생성 실패"
 
-    return await headline, summary, isCompleted
+    return headline, summary, isCompleted
