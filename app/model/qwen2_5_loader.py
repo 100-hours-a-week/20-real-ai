@@ -3,15 +3,16 @@ from transformers import AutoTokenizer
 
 # 토크나이저 로딩 (프롬프트용 메시지 생성에 사용)
 tokenizer = AutoTokenizer.from_pretrained(
-    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8",
     trust_remote_code=True
 )
 
 # Qwen2.5-7B-Instruct 모델 로딩 (vLLM 사용)
 llm = LLM(
-    model="Qwen/Qwen2.5-7B-Instruct",
+    model="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8",
     dtype="auto",
-    trust_remote_code=True
+    trust_remote_code=True,
+    gpu_memory_utilization=0.5
 )
 
 sampling_params = SamplingParams(
