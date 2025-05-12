@@ -1,4 +1,4 @@
-from app.model.qwen2_5_loader import llm, tokenizer
+from app.model.qwen2_5_loader import tokenizer, llm, sampling_params
 from app.model.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
 
@@ -26,7 +26,7 @@ def build_prompt(user_input: str, context: str = "") -> str:
 
 # 공통 LLM 호출 유틸 함수
 async def llm_generate(prompt_str: str) -> str:
-    outputs = await llm.generate(prompt_str, sampling_params={"temperature": 0.3, "max_tokens": 512})
+    outputs = await llm.generate(prompt_str, sampling_params)
     return outputs[0].outputs[0].text
 
 # 챗봇: 문서 검색 기반 비동기 응답
