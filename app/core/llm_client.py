@@ -24,6 +24,11 @@ def build_prompt(user_input: str, context: str = "") -> str:
         add_generation_prompt=True
     )
 
+# 공통 LLM 호출 유틸 함수
+async def llm_generate(prompt_str: str) -> str:
+    outputs = await llm.generate(prompt_str, sampling_params={"temperature": 0.3, "max_tokens": 512})
+    return outputs[0].outputs[0].text
+
 # 챗봇: 문서 검색 기반 비동기 응답
 async def get_chat_response(question: str) -> str:
     docs = retriever.get_relevant_documents(question)
@@ -33,9 +38,9 @@ async def get_chat_response(question: str) -> str:
     prompt = chatbot_rag_prompt.format(context=context, question=question)
     prompt_str = build_prompt(prompt)
 
-    return await llm.ainvoke(prompt_str)
+    return await llm_generate(prompt_str)
 
-# 요약/뉴스 생성: 단일 프롬프트 동기 호출
+# 요약/뉴스 생성: 단일 프롬프트 호출
 async def call_qwen(prompt: str) -> str:
     prompt_str = build_prompt(prompt)
-    return await llm.ainvoke(prompt_str)
+    return await llm_generate(prompt_str)
