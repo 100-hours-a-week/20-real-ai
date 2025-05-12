@@ -24,13 +24,19 @@ def build_prompt(user_input: str, context: str = "") -> str:
         add_generation_prompt=True
     )
 
+async def get_first_element(agen):
+    async for item in agen:
+        return item
+    return None
+
 # 공통 LLM 호출 유틸 함수
 async def llm_generate(prompt_str: str, request_id: str) -> str:
     outputs = llm.generate(prompt_str, sampling_params, request_id=request_id)
-    async for output in outputs:
-        return output.outputs[0].text
-    
-    return 'empty:' + prompt_str
+    first_element = await get_first_element(outputs)
+    if first_element == None:
+        return 'empty:' + prompt_str
+    else:
+        return first_element.outputs[0].text
 
 # 챗봇: 문서 검색 기반 비동기 응답
 async def get_chat_response(question: str, request_id:str) -> str:
@@ -46,4 +52,4 @@ async def get_chat_response(question: str, request_id:str) -> str:
 # 요약/뉴스 생성: 단일 프롬프트 호출
 async def call_qwen(prompt: str) -> str:
     prompt_str = build_prompt(prompt)
-    return await llm_generate(prompt_str) # llm.inovoke(p)
+    return await llm_generate(prompt_str)
