@@ -36,6 +36,6 @@ async def get_chat_response(question: str) -> str:
     return await llm.ainvoke(prompt_str)
 
 # 요약/뉴스 생성: 단일 프롬프트 동기 호출
-def call_qwen(prompt: str) -> str:
+async def call_qwen(prompt: str) -> str:
     prompt_str = build_prompt(prompt)
-    return llm.invoke(prompt_str)
+    return await llm.ainvoke(prompt_str)
