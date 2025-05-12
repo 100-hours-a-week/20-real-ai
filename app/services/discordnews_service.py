@@ -2,7 +2,7 @@ import json
 from app.core.llm_client import call_qwen
 from app.model.prompt_template import discord_news_prompt
 
-async def summarize_discord_news_service(title: str | None, content: str) -> tuple[str, str]:
+def summarize_discord_news_service(title: str | None, content: str) -> tuple[str, str]:
     # 1. 템플릿 적용
     prompt = discord_news_prompt.format(docs=content)
 
@@ -21,4 +21,4 @@ async def summarize_discord_news_service(title: str | None, content: str) -> tup
         headline = "헤드라인 없음"
         summary = "요약 생성 실패"
 
-    return await headline, summary, isCompleted
+    return headline, summary, isCompleted
