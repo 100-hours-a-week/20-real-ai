@@ -1,4 +1,4 @@
-from vllm import LLM, SamplingParams, AsyncEngineArgs, AsyncLLMEngine
+from vllm import SamplingParams, AsyncEngineArgs, AsyncLLMEngine
 from transformers import AutoTokenizer
 
 # 토크나이저 로딩 (프롬프트용 메시지 생성에 사용)
