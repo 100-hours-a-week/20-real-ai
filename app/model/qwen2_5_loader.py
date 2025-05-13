@@ -7,13 +7,6 @@ tokenizer = AutoTokenizer.from_pretrained(
     trust_remote_code=True
 )
 
-# # Qwen2.5-7B-Instruct 모델 로딩 (vLLM 사용)
-# llm = LLM(
-#     model="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8",
-#     dtype="auto",
-#     trust_remote_code=True
-# )
-
 engine_args = AsyncEngineArgs(
     model="Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8",
     # gpu_memory_utilization=0.95,
