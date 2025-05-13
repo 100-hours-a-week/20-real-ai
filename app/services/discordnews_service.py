@@ -2,13 +2,13 @@ import json
 from app.core.llm_client import call_qwen
 from app.model.prompt_template import discord_news_prompt
 
-async def summarize_discord_news_service(title: str | None, content: str, request_id: str) -> tuple[str, str]:
+def summarize_discord_news_service(title: str | None, content: str, request_id: str) -> tuple[str, str]:
     # 1. 템플릿 적용
     prompt = discord_news_prompt.format(docs=content)
 
     isCompleted = True
     # 2. LLM 호출
-    response = await call_qwen(prompt, request_id)
+    response = call_qwen(prompt, request_id)
 
     # 3. JSON 파싱
     try:

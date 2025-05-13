@@ -24,6 +24,8 @@ def build_prompt(user_input: str, context: str = "") -> str:
         add_generation_prompt=True
     )
 
+ # 비동기 generator(agen)에서 첫 번째 응답 요소만 받아오는 헬퍼 함수
+ # vLLM의 generate()는 async generator를 반환하므로 첫 토큰 배치만 추출할 때 사용
 async def get_first_element(agen):
     async for item in agen:
         return item
@@ -50,6 +52,12 @@ async def get_chat_response(question: str, request_id:str) -> str:
     return await llm_generate(prompt_str, request_id)
 
 # 요약/뉴스 생성: 단일 프롬프트 호출
-async def call_qwen(prompt: str, request_id: str) -> str:
+def call_qwen(prompt: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
-    return await llm_generate(prompt_str, request_id)
+
+    outputs = llm.generate(prompt_str, sampling_params, request_id=request_id)
+    result = ""
+    for out in outputs:
+        result += out.outputs[0].text
+
+    return result if result else "empty:" + prompt_str

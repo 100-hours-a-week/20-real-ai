@@ -6,6 +6,6 @@ router = APIRouter()
 
 # 공지사항 요약 API 엔드포인트
 @router.post("/notices/summarization", response_model=NoticeResponse)
-async def notice_endpoint(request: NoticeRequest):
+def notice_endpoint(request: NoticeRequest):
     # 공지 요약 컨트롤러 호출
-    return await summarize_notice(request)
+    return summarize_notice(request)

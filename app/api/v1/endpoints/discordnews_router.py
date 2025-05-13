@@ -6,6 +6,6 @@ router = APIRouter()
 
 # Discord 뉴스 요약 API 엔드포인트
 @router.post("/news", response_model=DiscordNewsResponse)
-async def discord_news_endpoint(request: DiscordNewsRequest):
+def discord_news_endpoint(request: DiscordNewsRequest):
     # 뉴스 요약 컨트롤러 호출
-    return await summarize_discord_news(request)
+    return summarize_discord_news(request)
