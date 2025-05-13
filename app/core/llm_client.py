@@ -24,32 +24,29 @@ def build_prompt(user_input: str, context: str = "") -> str:
         add_generation_prompt=True
     )
 
-async def get_first_element(agen):
+# 비동기 generator(agen)에서 마지막 응답 요소만 수집
+async def get_last_output(agen) -> str:
+    last_text = ""
     async for item in agen:
-        return item
-    return None
+        if item.outputs and item.outputs[0].text:
+            last_text = item.outputs[0].text
+    return last_text
 
 # 공통 LLM 호출 유틸 함수
 async def llm_generate(prompt_str: str, request_id: str) -> str:
-    outputs = llm.generate(prompt_str, sampling_params, request_id=request_id)
-    first_element = await get_first_element(outputs)
-    if first_element == None:
-        return 'empty:' + prompt_str
-    else:
-        return first_element.outputs[0].text
+    agen = llm.generate(prompt_str, sampling_params, request_id=request_id)
+    result = await get_last_output(agen)
+    return result if result else "empty:" + prompt_str
 
-# 챗봇: 문서 검색 기반 비동기 응답
-async def get_chat_response(question: str, request_id:str) -> str:
-    docs = retriever.get_relevant_documents(question)
-    context = "\n\n".join([doc.page_content for doc in docs])
-
-    # 템플릿: context + question
-    prompt = chatbot_rag_prompt.format(context=context, question=question)
+# 요약/뉴스 생성 전용 호출 함수
+async def call_qwen(prompt: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
-
     return await llm_generate(prompt_str, request_id)
 
-# 요약/뉴스 생성: 단일 프롬프트 호출
-async def call_qwen(prompt: str) -> str:
+# 문서 기반 챗봇 응답 함수
+async def get_chat_response(question: str, request_id: str) -> str:
+    docs = retriever.get_relevant_documents(question)
+    context = "\n\n".join([doc.page_content for doc in docs])
+    prompt = chatbot_rag_prompt.format(context=context, question=question)
     prompt_str = build_prompt(prompt)
-    return await llm_generate(prompt_str)
+    return await llm_generate(prompt_str, request_id)
