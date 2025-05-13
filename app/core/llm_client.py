@@ -50,6 +50,6 @@ async def get_chat_response(question: str, request_id:str) -> str:
     return await llm_generate(prompt_str, request_id)
 
 # 요약/뉴스 생성: 단일 프롬프트 호출
-async def call_qwen(prompt: str) -> str:
+async def call_qwen(prompt: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
-    return await llm_generate(prompt_str)
+    return await llm_generate(prompt_str, request_id)
