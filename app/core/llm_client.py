@@ -1,4 +1,4 @@
-from app.model.qwen2_5_loader import llm, tokenizer
+from app.model.qwen2_5_loader import tokenizer, llm, sampling_params
 from app.model.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
 
@@ -24,8 +24,22 @@ def build_prompt(user_input: str, context: str = "") -> str:
         add_generation_prompt=True
     )
 
+async def get_first_element(agen):
+    async for item in agen:
+        return item
+    return None
+
+# 공통 LLM 호출 유틸 함수
+async def llm_generate(prompt_str: str, request_id: str) -> str:
+    outputs = llm.generate(prompt_str, sampling_params, request_id=request_id)
+    first_element = await get_first_element(outputs)
+    if first_element == None:
+        return 'empty:' + prompt_str
+    else:
+        return first_element.outputs[0].text
+
 # 챗봇: 문서 검색 기반 비동기 응답
-async def get_chat_response(question: str) -> str:
+async def get_chat_response(question: str, request_id:str) -> str:
     docs = retriever.get_relevant_documents(question)
     context = "\n\n".join([doc.page_content for doc in docs])
 
@@ -33,9 +47,9 @@ async def get_chat_response(question: str) -> str:
     prompt = chatbot_rag_prompt.format(context=context, question=question)
     prompt_str = build_prompt(prompt)
 
-    return await llm.ainvoke(prompt_str)
+    return await llm_generate(prompt_str, request_id)
 
-# 요약/뉴스 생성: 단일 프롬프트 동기 호출
-def call_qwen(prompt: str) -> str:
+# 요약/뉴스 생성: 단일 프롬프트 호출
+async def call_qwen(prompt: str) -> str:
     prompt_str = build_prompt(prompt)
-    return llm.invoke(prompt_str)
+    return await llm_generate(prompt_str)
