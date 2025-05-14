@@ -3,8 +3,13 @@ from app.core.llm_client import call_qwen
 from app.model.prompt_template import discord_news_prompt
 
 async def summarize_discord_news_service(title: str | None, content: str, request_id: str) -> tuple[str, str]:
+    # 제목 조건문
+    if title:
+        formatted_docs = f"[title]: {title}\n[content]: {content}"
+    else:
+        formatted_docs = f"[content]: {content}"
     # 1. 템플릿 적용
-    prompt = discord_news_prompt.format(docs=content)
+    prompt = discord_news_prompt.format(docs=formatted_docs)
 
     isCompleted = True
     # 2. LLM 호출
