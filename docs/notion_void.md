@@ -1,4 +1,85 @@
-# notion_void.md
+
+# Title: 이슈 관리
+
+# Date : 2025.05.12
+
+# Category: Notion
+
+# Link: [https://www.notion.so/adapterz/1ee394a4806180e0b443c7b8dae24bb7](https://www.notion.so/1ee394a4806180e0b443c7b8dae24bb7?pvs=21)
+
+# 내용:
+
+여러분, 팀 외부에서 발생한 이슈는 반드시 직접 깃허브 이슈로 등록해야 합니다.
+
+이슈를 등록하지 않고 문제를 해결하면, 나중에 왜 해결했는지 정확히 기억하기 어렵고, 인터뷰 시 구체적으로 설명하기도 힘듭니다.
+
+실제 회사에서의 업무 처리 방식은 보통 아래의 순서대로 이루어집니다.
+
+1. **문제 발생**
+2. **이슈 등록** (발생한 에러와 상황을 상세히 기록)
+3. **트러블슈팅 진행**
+4. **트러블슈팅 로그 작성** (어떻게 해결했는지 상세 기록)
+
+여기서 중요한 것은 **이슈는 반드시 해결 전에 등록**하며, **트러블슈팅 로그는 해결 후 작성**한다는 점입니다.
+`이슈에서 댓글로 트러블슈팅 로그를 남기는게 일반적인 관행입니다.` 
+
+이 두 가지의 가장 큰 차이는 작성하는 타이밍입니다.
+
+또한, 이슈 해결 후 Git commit을 할 때, `git commit -m "커밋 메시지 close #이슈번호"` 형식으로 작성하면, 해당 이슈를 자동으로 닫을 수 있습니다.
+
+이렇게 하면 코드가 어떤 이슈를 해결했는지 명확히 연결되어 더욱 관리하기 쉬워집니다.
+
+앞으로는 꼭 **이슈 템플릿을 활용하여 이슈부터 등록**하고, 해결 후에는 **Git의 close 옵션을 활용해 깔끔하게 마무리**해주시기 바랍니다.
+
+---
+
+# Title: 카카오 현직자 자기소개서 공개 피드백 참여 안내
+
+# Date : 2025.05.09
+
+# Category: Notion
+
+# Link: [https://www.notion.so/adapterz/1ee394a4806180e0b443c7b8dae24bb7](https://www.notion.so/1ee394a4806180e0b443c7b8dae24bb7?pvs=21)
+
+# 내용:
+
+안녕하세요, 여러분.
+
+이번에 카카오 현직자분께서 자기소개서(500~1000자) 2편 정도를 선정하여 타운홀에서 공개적으로 피드백해 주시는 시간을 가지려고 합니다.
+
+**자기소개서를 다른 동료들 앞에서 공개적으로 피드백받는 것에 동의하시는 분**들은,
+
+현재 구글 독스로 작성한 이력서의 하단에 **5월 14일(수) 23:59까지 별도 페이지로 자기소개서를 추가 작성**하신 뒤,
+
+작성 완료 후 **디스코드 DM으로 제게 알려주시면** 감사하겠습니다.
+
+카카오 현직자의 생생한 피드백을 받을 수 있는 좋은 기회인 만큼, 적극적인 참여 부탁드릴게요!
+
+---
+
+# Title: 스프린트 별 영상 제작 안내
+
+# Date : 2025.05.03
+
+# Category: Notion
+
+# Link: [https://www.notion.so/adapterz/1e8394a4806180fca849dee95ca25198](https://www.notion.so/1e8394a4806180fca849dee95ca25198?pvs=21)
+
+# 내용:
+
+안녕하세요.
+
+앞으로 스프린트마다 배포/출시/업데이트를 진행한 날에는 여러분이 작업한 결과물을 영상으로 기록해주시기 바랍니다.
+
+기록한 영상은 ‘Vrew’를 사용하여 보기 좋게 편집해 주시고, 주요 기능이나 특징을 이해하기 쉽도록 간단한 자막도 함께 추가해 주세요.
+
+이렇게 지속적으로 쌓인 영상 자료는 우리 서비스가 어떻게 발전하고 있는지를 한눈에 볼 수 있는 소중한 기록이 됩니다. 또한 나중에 구직 활동 시 인터뷰나 포트폴리오 제출 ㄴ단계에서, 여러분이 실제 경험하고 성과를 만들어온 근거로 제시할 수 있는 매우 효과적인 자료가 될 것입니다.
+
+다소 번거롭더라도 여러분의 커리어에 큰 도움이 될 수 있는 만큼 적극적인 참여 부탁드립니다.
+
+감사합니다.
+
+---
 
 # Title: 5월 스케줄 안내
 
@@ -8,7 +89,7 @@
 
 # Link: [https://www.notion.so/adapterz/5-1e5394a4806180b682e0dd65b934b223](https://www.notion.so/1e5394a4806180b682e0dd65b934b223?pvs=21)
 
-## 내용
+# 내용:
 
 ### 5월 업무시간 및 일정 안내
 
@@ -48,7 +129,7 @@ PM/PL 미팅은 월~수에 각기 다른 형식(제품 회의/기술 회의)으�
 
 # Link: [https://www.notion.so/adapterz/1e3394a4806180af9f3af72bd79c4f29](https://www.notion.so/1e3394a4806180af9f3af72bd79c4f29?pvs=21)
 
-## 내용
+# 내용:
 
 ### 이력서 및 포트폴리오 제출자 대상 사전 검토 안내
 
@@ -97,7 +178,7 @@ PM/PL 미팅은 월~수에 각기 다른 형식(제품 회의/기술 회의)으�
 
 # Link: [https://www.notion.so/adapterz/1e0394a4806180c58412cd79f2824441](https://www.notion.so/1e0394a4806180c58412cd79f2824441?pvs=21)
 
-## 내용
+# 내용:
 
 ### 멘토링 진행방식 및 질문 준비 가이드
 
@@ -141,7 +222,7 @@ jsx
 ### 질문 제출 방법
 
 1. **GitHub 이슈 형태로 먼저 작성**
-2. 위 내용을 [**구글폼**](https://forms.gle/ofviW4rs8nHHHw727) 으로 제출
+2. 위 내용을 **구글폼** 으로 제출
 
 사전 제출된 질문은 멘토가 미리 검토할 수 있어, **더 깊이 있는 맞춤형 피드백**이 가능합니다.
 
@@ -150,8 +231,6 @@ jsx
 ### 프로젝트 외 질문도 가능
 
 - 프로젝트 외 질문은 **GitHub Discussion**을 활용해주세요:
-    - [Q&A 카테고리](https://github.com/orgs/100-hours-a-week/discussions/categories/q-a)
-    - [자유 카테고리](https://github.com/orgs/100-hours-a-week/discussions/categories/%EC%9E%90%EC%9C%A0)
 - Discussion에 작성 후, 구글폼에도 함께 제출해 주세요.
 
 ### 자주 하는 질문 예시
@@ -174,7 +253,7 @@ jsx
 
 # Link: [https://www.notion.so/adapterz/3-1de394a48061807882c8fa82f27549ca](https://www.notion.so/1de394a48061807882c8fa82f27549ca?pvs=21)
 
-## 내용
+# 내용:
 
 ### 스프린트 3 운영 원칙 및 워크스페이스 이용 안내
 
@@ -220,7 +299,7 @@ jsx
 
 # Link: [https://www.notion.so/adapterz/1de394a4806180ee8085e2f065337e27](https://www.notion.so/1de394a4806180ee8085e2f065337e27?pvs=21)
 
-## 내용
+# 내용:
 
 ### 보고 및 공유의 중요성
 
@@ -278,7 +357,7 @@ jsx
 
 # Link: [https://www.notion.so/adapterz/Tip-2-GPT-1d7394a4806180bbbd95c66444ac080d](https://www.notion.so/1d7394a4806180bbbd95c66444ac080d?pvs=21)
 
-## 내용
+# 내용:
 
 ### GPT 사용하세요.
 
@@ -342,7 +421,7 @@ jsx
 
 # Link: [https://www.notion.so/adapterz/Tip-1d7394a480618017b5eee3821b6820d6](https://www.notion.so/1d7394a480618017b5eee3821b6820d6?pvs=21)
 
-## 내용
+# 내용:
 
 ### 설계는 ‘왜’에서 시작됩니다
 
@@ -438,7 +517,7 @@ Redis까지 도입하면 관리 포인트만 늘어나는 것 아닌가요?
 
 # Link: [https://www.notion.so/adapterz/1d6394a4806180819631df22d50bd471](https://www.notion.so/1d6394a4806180819631df22d50bd471?pvs=21)
 
-## 내용
+# 내용:
 
 클라우드 설계 위키 문서를 작성할 때는 반드시 GitHub Wiki 레포지토리 내의 Wiki 섹션에 통합하여 작성해주시기 바랍니다. 
 문서가 여러 곳에 흩어지면 나중에 찾기 어려워질 수 있기 때문입니다.
@@ -457,7 +536,7 @@ Redis까지 도입하면 관리 포인트만 늘어나는 것 아닌가요?
 
 # Link: [https://www.notion.so/adapterz/1d4394a4806180a69be0d9969b53d04a](https://www.notion.so/1d4394a4806180a69be0d9969b53d04a?pvs=21)
 
-## 내용
+# 내용:
 
 금일 13시부터 50분간 상호피드백해주세요.
 
@@ -493,12 +572,12 @@ Redis까지 도입하면 관리 포인트만 늘어나는 것 아닌가요?
 
 # Link:[https://www.notion.so/adapterz/1cb394a4806180bfa1ccc4c9abcf522c](https://www.notion.so/1cb394a4806180bfa1ccc4c9abcf522c?pvs=21)
 
-## 내용
+# 내용:
 
 1. 대표자가 제출해주세요
 2. 애자일강의까지 모두 듣고 링크를 생성하시고 제출해주세요.
 3. figma는 실습용 피그마를 복제한 figma를 제출해주세요.
-4. api 시트 link는 [rest API 템플릿](https://docs.google.com/spreadsheets/d/101Uq46mvcftIasStDa0jlUCoZwpzl--sMKwLT5M-VOk/edit?usp=sharing)을 복제한 다음에 링크를 제출해주세요 (rest API 예시)
+4. api 시트 link는 rest API 템플릿을 복제한 다음에 링크를 제출해주세요 (rest API 예시)
 5. erdcloud는 파일을 만들기만하고 제출해주세요
 6. TC, TS URL는 빈 스프레드시트 파일 링크를 제출해주세요 (추후 업데이트할 것입니다)
 7. 구글 슬라이드 (우선 슬라이드 만들어서 링크 제출해주세요, 타운홀 주간 미팅 발표 후 대표자가 정리해주세요 )
@@ -540,14 +619,6 @@ Redis까지 도입하면 관리 포인트만 늘어나는 것 아닌가요?
                 3. 팀원별 회고
         
 
-### 위 내용을 아래 구글 폼으로 제출해주세요
-
-[](https://forms.gle/Q3mnagdc3e6MNeMB6)
-
-**구글 폼을 제출하면 아래 시트(강사 및 멘토에게 공유할 페이지)에 업로드 될 것입니다**
-
-https://docs.google.com/spreadsheets/d/134qxR2AGNeEMC6vEAe4KF-J69haI2aybxqaZFSRDut8/edit?usp=sharing
-
 ---
 
 # Title: 이력서 및 포트폴리오 작성 가이드
@@ -558,7 +629,7 @@ https://docs.google.com/spreadsheets/d/134qxR2AGNeEMC6vEAe4KF-J69haI2aybxqaZFSRD
 
 # Link: [https://www.notion.so/adapterz/1-1c9394a48061801d8904f77edf383b84](https://www.notion.so/1c9394a48061801d8904f77edf383b84?pvs=21)
 
-## 내용
+# 내용:
 
 ### 이력서 작성 가이드
 
@@ -631,7 +702,7 @@ https://docs.google.com/spreadsheets/d/134qxR2AGNeEMC6vEAe4KF-J69haI2aybxqaZFSRD
 
 # Link: [https://www.notion.so/adapterz/PM-PL-1c7394a48061803e8ee8db3c1316e485](https://www.notion.so/1c7394a48061803e8ee8db3c1316e485?pvs=21)
 
-## 내용
+# 내용:
 
 ### 업무시간
 
@@ -676,8 +747,6 @@ https://docs.google.com/spreadsheets/d/134qxR2AGNeEMC6vEAe4KF-J69haI2aybxqaZFSRD
 - 1개월차는 문제 풀이에 익숙해지는 것이 목적입니다. 실력이 아닌 **습관** 형성이 우선입니다.
 - 실력 향상을 위해 적극적으로 참여해 주세요.
 
-[문제집 링크](https://www.acmicpc.net/group/23318)
-
 ### 오전 과정 일과표
 
 | 구분 | 월 | 화 | 수 | 목 | 금 |
@@ -690,4 +759,3 @@ https://docs.google.com/spreadsheets/d/134qxR2AGNeEMC6vEAe4KF-J69haI2aybxqaZFSRD
 
 이 일정은 면접 준비, 문서화, 발표 등 실전에서 요구되는 역량을 체계적으로 쌓기 위한 과정입니다. 수료 이후에는 이와 같은 집중 환경을 갖기 어려우므로, 현재의 기회를 최대한 활용해 주시기 바랍니다.
 
----

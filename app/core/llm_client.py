@@ -3,7 +3,7 @@ from app.model.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
 
 # 시스템 메시지
-SYSTEM_MESSAGE = "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. Please respond only in Korean."
+SYSTEM_MESSAGE = "You are a kind and friendly chatbot for announcements. Answer politely and clearly based on the announcement content. Please respond only in Korean."
 
 # 벡터스토어 로딩 후 RAG용 retriever 구성
 faiss_vectorstore = load_vectorstore()
