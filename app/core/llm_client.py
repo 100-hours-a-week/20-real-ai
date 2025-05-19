@@ -1,13 +1,15 @@
 from app.model.qwen2_5_loader import tokenizer, llm, sampling_params
 from app.model.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
+from app.core.date_utlis import parse_relative_dates
+from app.core.chat_history import get_session_history, chat_history_to_string
 
 # 시스템 메시지
 SYSTEM_MESSAGE = "You are a kind and friendly chatbot for announcements. Answer politely and clearly based on the announcement content. Please respond only in Korean."
 
 # 벡터스토어 로딩 후 RAG용 retriever 구성
 faiss_vectorstore = load_vectorstore()
-retriever = faiss_vectorstore.as_retriever()
+retriever = faiss_vectorstore.as_retriever(search_kwargs={"k": 2})
 
 # 공통 메시지 생성 및 프롬프트 구성 함수
 def build_prompt(user_input: str, context: str = "") -> str:
@@ -33,7 +35,7 @@ async def get_last_output(agen) -> str:
     return last_text
 
 # 공통 LLM 호출 유틸 함수
-async def llm_generate(prompt_str: str, request_id: str) -> str:
+async def llm_generate(prompt_str: str, request_id: str, user_id: str, conversation_id: str) -> str:
     agen = llm.generate(prompt_str, sampling_params, request_id=request_id)
     result = await get_last_output(agen)
     return result if result else "empty:" + prompt_str
@@ -44,9 +46,23 @@ async def call_qwen(prompt: str, request_id: str) -> str:
     return await llm_generate(prompt_str, request_id)
 
 # 문서 기반 챗봇 응답 함수
-async def get_chat_response(question: str, request_id: str) -> str:
-    docs = retriever.get_relevant_documents(question)
+async def get_chat_response(question: str, request_id: str, user_id: str,conversation_id: str) -> str:
+    # 1. 날짜 전처리
+    parsed_question = parse_relative_dates(question)
+    # 2. 세션 기반 히스토리
+    history = get_session_history(user_id, conversation_id)
+    # 3. 히스토리 문자열 생성
+    history_str = chat_history_to_string(history)
+    # 4. 문서 검색
+    docs = retriever.get_relevant_documents(parsed_question)
     context = "\n\n".join([doc.page_content for doc in docs])
-    prompt = chatbot_rag_prompt.format(context=context, question=question)
+    # 5. 챗봇 프롬프트 구성
+    prompt = chatbot_rag_prompt.format(history=history_str,context=context,question=parsed_question)
     prompt_str = build_prompt(prompt)
-    return await llm_generate(prompt_str, request_id)
+    # 6. LLM 호출
+    result = await llm_generate(prompt_str, request_id, user_id, conversation_id)
+    # 7. 챗봇 히스토리 저장
+    history.add_user_message(parsed_question)
+    history.add_ai_message(result)
+
+    return result
