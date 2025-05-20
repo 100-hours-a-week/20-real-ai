@@ -19,3 +19,5 @@ transformers
 sentence-transformers
 faiss-cpu
 google-cloud-storage
+arrow==1.3.0 
+holidays==0.46
