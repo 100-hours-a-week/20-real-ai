@@ -18,5 +18,8 @@ async def chat_controller(req: ChatRequest) -> ChatResponse:
     # 표준 응답 스키마로 래핑하여 반환
     return ChatResponse(
         message="응답이 완료되었습니다.",
-        data=ChatAnswer(answer=answer)
+        data=ChatAnswer(
+        answer=answer
+        ),
+        conversation_id=conversation_id
     )
