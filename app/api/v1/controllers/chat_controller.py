@@ -4,13 +4,9 @@ from app.services.chat_service import generate_chat_response
 import uuid
 
 async def chat_controller(req: ChatRequest) -> ChatResponse:
-    # 대화 요청마다 UUID 생성
     request_id = str(uuid.uuid4())
-    # session ID
-    user_id = str(uuid.uuid4())
-    # 새 대화 시작 시 UUID 생성
-    if not conversation_id:
-        conversation_id = str(uuid.uuid4()) 
+    user_id = req.user_id
+    conversation_id = req.conversation_id or str(uuid.uuid4())
 
     # 질문이 비어있을 경우 400 에러 반환
     if not req.question.strip():
