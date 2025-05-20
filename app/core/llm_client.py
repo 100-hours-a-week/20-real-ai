@@ -35,7 +35,7 @@ async def get_last_output(agen) -> str:
     return last_text
 
 # 공통 LLM 호출 유틸 함수
-async def llm_generate(prompt_str: str, request_id: str, user_id: str, conversation_id: str) -> str:
+async def llm_generate(prompt_str: str, request_id: str) -> str:
     agen = llm.generate(prompt_str, sampling_params, request_id=request_id)
     result = await get_last_output(agen)
     return result if result else "empty:" + prompt_str
@@ -46,7 +46,7 @@ async def call_qwen(prompt: str, request_id: str) -> str:
     return await llm_generate(prompt_str, request_id)
 
 # 문서 기반 챗봇 응답 함수
-async def get_chat_response(question: str, request_id: str, user_id: str,conversation_id: str) -> str:
+async def get_chat_response(question: str, request_id: str, user_id: str, conversation_id: str) -> str:
     # 1. 날짜 전처리
     parsed_question = parse_relative_dates(question)
     # 2. 세션 기반 히스토리
@@ -57,10 +57,10 @@ async def get_chat_response(question: str, request_id: str, user_id: str,convers
     docs = retriever.get_relevant_documents(parsed_question)
     context = "\n\n".join([doc.page_content for doc in docs])
     # 5. 챗봇 프롬프트 구성
-    prompt = chatbot_rag_prompt.format(history=history_str,context=context,question=parsed_question)
+    prompt = chatbot_rag_prompt.format(history=history_str, context=context, question=parsed_question)
     prompt_str = build_prompt(prompt)
     # 6. LLM 호출
-    result = await llm_generate(prompt_str, request_id, user_id, conversation_id)
+    result = await llm_generate(prompt_str, request_id)
     # 7. 챗봇 히스토리 저장
     history.add_user_message(parsed_question)
     history.add_ai_message(result)
