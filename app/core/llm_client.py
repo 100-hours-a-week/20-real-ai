@@ -1,6 +1,9 @@
 from app.model.qwen2_5_loader import tokenizer, llm, sampling_params
 from app.model.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 시스템 메시지
 SYSTEM_MESSAGE = "You are a kind and friendly chatbot for announcements. Answer politely and clearly based on the announcement content. Please respond only in Korean."

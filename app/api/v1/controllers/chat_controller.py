@@ -2,7 +2,9 @@ from fastapi import HTTPException
 from app.schemas.chat_schema import ChatRequest, ChatAnswer, ChatResponse
 from app.services.chat_service import generate_chat_response
 import uuid
+from langsmith import traceable
 
+@traceable(name="Chat Controller", inputs={"질문": lambda args, kwargs: args[0].question})
 async def chat_controller(req: ChatRequest) -> ChatResponse:
     request_id = str(uuid.uuid4())
     
