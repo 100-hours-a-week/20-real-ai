@@ -2,7 +2,10 @@ from fastapi import HTTPException
 from app.schemas.chat_schema import ChatRequest, ChatAnswer, ChatResponse
 from app.services.chat_service import generate_chat_response
 import uuid
+from langsmith import traceable
+from langsmith.run_helpers import get_current_run_tree
 
+@traceable(name="Chat Controller", inputs={"질문": lambda args, kwargs: args[0].question})
 async def chat_controller(req: ChatRequest) -> ChatResponse:
     request_id = str(uuid.uuid4())
     
@@ -12,6 +15,10 @@ async def chat_controller(req: ChatRequest) -> ChatResponse:
 
     # 챗봇 응답 생성 서비스 호출
     answer = await generate_chat_response(req.question, request_id)
+
+    run = get_current_run_tree()
+    if run:
+        run.outputs = {"request_id": request_id}
 
     # 표준 응답 스키마로 래핑하여 반환
     return ChatResponse(
