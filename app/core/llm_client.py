@@ -3,6 +3,7 @@ from app.model.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
 from dotenv import load_dotenv
 from langsmith import traceable
+from langsmith.traceable import get_current_run_context
 
 load_dotenv()
 
@@ -56,9 +57,11 @@ async def get_chat_response(question: str, request_id: str) -> str:
     prompt = chatbot_rag_prompt.format(context=context, question=question)
     prompt_str = build_prompt(prompt)
 
-    get_chat_response.set_outputs({
-        "검색된 문서 수": len(docs),
-        "첫 문서": docs[0].page_content[:100] if docs else "없음"
-    })
+    run_context = get_current_run_context()
+    if run_context:
+        run_context.set_outputs({
+            "검색된 문서 수": len(docs),
+            "첫 문서": docs[0].page_content[:100] if docs else "없음"
+        })
 
     return await llm_generate(prompt_str, request_id)
