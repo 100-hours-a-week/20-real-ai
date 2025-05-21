@@ -1,7 +1,9 @@
 from app.schemas.discordnews_schema import DiscordNewsRequest, DiscordNewsResponse, DiscordNewsData
 from app.services.discordnews_service import summarize_discord_news_service
 import uuid
+from langsmith import traceable
 
+@traceable(name="DiscordNews Controller", inputs={"제목": lambda args, kwargs: args[0].title, "본문": lambda args, kwargs: args[0].content})
 async def summarize_discord_news(request: DiscordNewsRequest) -> DiscordNewsResponse:
     request_id = str(uuid.uuid4())
 
