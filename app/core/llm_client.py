@@ -3,7 +3,6 @@ from app.model.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
 from dotenv import load_dotenv
 from langsmith import traceable
-from langsmith.run_context import tracing_context
 
 load_dotenv()
 
