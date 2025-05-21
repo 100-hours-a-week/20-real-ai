@@ -45,6 +45,7 @@ async def llm_generate(prompt_str: str, request_id: str) -> str:
     return result if result else "empty:" + prompt_str
 
 # 요약/뉴스 생성 전용 호출 함수
+@traceable(name="요약/뉴스 생성 호출", inputs={"프롬프트": lambda args, kwargs: args[0]})
 async def call_qwen(prompt: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
     return await llm_generate(prompt_str, request_id)
@@ -59,9 +60,9 @@ async def get_chat_response(question: str, request_id: str) -> str:
 
     run = get_current_run_tree()
     if run:
-        run.set_outputs({
+        run.outputs = {
             "검색된 문서 수": len(docs),
             "첫 문서": docs[0].page_content[:100] if docs else "없음"
-        })
+        }
 
     return await llm_generate(prompt_str, request_id)

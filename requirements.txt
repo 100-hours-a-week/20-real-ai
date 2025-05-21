@@ -20,3 +20,4 @@ transformers
 sentence-transformers
 faiss-cpu
 google-cloud-storage
+python-dotenv>=1.0.0
