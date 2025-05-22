@@ -30,12 +30,35 @@ def get_session_history(
     return store[(user_id, conversation_id)]
 
 
-# 히스토리를 문자열로 반환 (vllm.generate 때문에)
+# 요약 함수 - 간단 요약 (실제론 LLM 사용 권장)
+def summarize_old_history(messages: List[BaseMessage]) -> str:
+    summary = []
+    for msg in messages:
+        role = "사용자" if msg.type == "human" else "AI"
+        content = msg.content.strip().replace("\n", " ")
+        summary.append(f"{role}: {content}")
+    return "[요약된 과거 대화]\n" + "\n".join(summary[:5])
+
+# 히스토리를 문자열로 반환하되 요약 포함
 def chat_history_to_string(history: InMemoryHistory) -> str:
+    messages = history.get_messages()
+    MAX_RECENT_MESSAGES = 4  # 최근 4개 메시지 
+
+    if len(messages) <= MAX_RECENT_MESSAGES:
+        usable = messages
+        summary_str = ""
+    else:
+        usable = messages[-MAX_RECENT_MESSAGES:]
+        summary_str = summarize_old_history(messages[:-MAX_RECENT_MESSAGES])
+
     lines = []
-    for msg in history.get_messages():
-        if msg.type == "human":
-            lines.append(f"사용자: {msg.content}")
-        elif msg.type == "ai":
-            lines.append(f"AI: {msg.content}")
+    # 최근 메시지를 상위권에 배치
+    for msg in usable:
+        role = "사용자" if msg.type == "human" else "AI"
+        lines.append(f"{role}: {msg.content}")
+
+    # 요약은 마지막에 배치 (LLM의 주의도를 낮춤)
+    if summary_str:
+        lines.append(summary_str)
+
     return "\n".join(lines)
