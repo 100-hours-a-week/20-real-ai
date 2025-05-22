@@ -4,6 +4,7 @@ from app.core.vector_store import load_vectorstore
 from dotenv import load_dotenv
 from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
+from app.core.date import parse_relative_dates
 
 load_dotenv()
 
@@ -26,7 +27,8 @@ def build_prompt(user_input: str, context: str = "") -> str:
     return tokenizer.apply_chat_template(
         messages,
         tokenize=False,
-        add_generation_prompt=True
+        add_generation_prompt=True,  
+        enable_thinking=False
     )
 
 # 비동기 generator(agen)에서 마지막 응답 요소만 수집
@@ -53,9 +55,10 @@ async def call_qwen(prompt: str, request_id: str) -> str:
 # 문서 기반 챗봇 응답 함수
 @traceable(name="챗봇 질문 응답", inputs={"질문": lambda args, kwargs: args[0]})
 async def get_chat_response(question: str, request_id: str) -> str:
+    parsed_question = parse_relative_dates(question)
     docs = retriever.get_relevant_documents(question)
     context = "\n\n".join([doc.page_content for doc in docs])
-    prompt = chatbot_rag_prompt.format(context=context, question=question)
+    prompt = chatbot_rag_prompt.format(context=context, question=parsed_question)
     prompt_str = build_prompt(prompt)
 
     run = get_current_run_tree()
