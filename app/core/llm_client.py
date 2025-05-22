@@ -47,11 +47,11 @@ async def call_qwen(prompt: str, request_id: str) -> str:
     return await llm_generate(prompt_str, request_id)
 
 # 문서 기반 챗봇 응답 함수
-async def get_chat_response(question: str, request_id: str, user_id: str, conversation_id: str) -> str:
+async def get_chat_response(question: str, request_id: str) -> str:
     # 1. 날짜 전처리
     parsed_question = parse_relative_dates(question)
     # 2. 세션 기반 히스토리
-    history = get_session_history(user_id, conversation_id)
+    history = get_session_history(request_id)
     # 3. 히스토리 문자열 생성
     history_str = chat_history_to_string(history)
     # 4. 문서 검색

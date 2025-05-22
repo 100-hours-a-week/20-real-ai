@@ -23,11 +23,11 @@ class InMemoryHistory(BaseChatMessageHistory, BaseModel):
 # 사용자별 메모리  (멀티 사용자 기반)
 store = {}
 def get_session_history(
-    user_id: str, conversation_id: str
+    request_id: str
 ) -> BaseChatMessageHistory:
-    if (user_id, conversation_id) not in store:
-        store[(user_id, conversation_id)] = InMemoryHistory()
-    return store[(user_id, conversation_id)]
+    if (request_id) not in store:
+        store[(request_id)] = InMemoryHistory()
+    return store[(request_id)]
 
 
 # 히스토리를 문자열로 반환 (vllm.generate 때문에)
