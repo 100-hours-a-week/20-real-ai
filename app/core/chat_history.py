@@ -1,6 +1,7 @@
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.messages import AIMessage, HumanMessage, BaseMessage
 from pydantic import BaseModel, Field
+from typing import List
 
 class InMemoryHistory(BaseChatMessageHistory, BaseModel):
     messages: list[BaseMessage] = Field(default_factory=list)
