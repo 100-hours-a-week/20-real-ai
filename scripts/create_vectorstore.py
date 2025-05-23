@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from app.core.embedding_model import get_embedder
+from app.models.embedding_model import get_embedder
 
 import os
 
@@ -16,7 +16,7 @@ docs = loader.load()
 
 # 2. 문서 분할
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=500,
+    chunk_size=512,
     chunk_overlap=100,
 )
 chunks = splitter.split_documents(docs)

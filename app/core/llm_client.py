@@ -1,10 +1,10 @@
-from app.model.qwen2_5_loader import tokenizer, llm, sampling_params
-from app.model.prompt_template import chatbot_rag_prompt
+from app.models.qwen2_5_loader import tokenizer, llm, sampling_params
+from app.models.prompt_template import chatbot_rag_prompt
 from app.core.vector_store import load_vectorstore
 from dotenv import load_dotenv
 from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
-from app.core.date import parse_relative_dates
+from app.core.date_utils import parse_relative_dates
 
 load_dotenv()
 
@@ -13,7 +13,7 @@ SYSTEM_MESSAGE = "You are a kind and friendly chatbot for announcements. Answer 
 
 # 벡터스토어 로딩 후 RAG용 retriever 구성
 faiss_vectorstore = load_vectorstore()
-retriever = faiss_vectorstore.as_retriever()
+retriever = faiss_vectorstore.as_retriever(search_kwargs={"k": 2})
 
 # 공통 메시지 생성 및 프롬프트 구성 함수
 def build_prompt(user_input: str, context: str = "") -> str:
@@ -40,7 +40,6 @@ async def get_last_output(agen) -> str:
     return last_text
 
 # 공통 LLM 호출 유틸 함수
-@traceable(name="LLM 호출")
 async def llm_generate(prompt_str: str, request_id: str) -> str:
     agen = llm.generate(prompt_str, sampling_params, request_id=request_id)
     result = await get_last_output(agen)
