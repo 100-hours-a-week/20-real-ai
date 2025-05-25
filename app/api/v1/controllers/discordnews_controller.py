@@ -1,5 +1,5 @@
 from app.schemas.discordnews_schema import DiscordNewsRequest, DiscordNewsResponse, DiscordNewsData
-from app.services.discordnews_service import summarize_discord_news_service
+from app.services.discordnews_service import summarize_headiline_discordnews_service
 import uuid
 from langsmith import traceable
 
@@ -8,7 +8,7 @@ async def summarize_discord_news(request: DiscordNewsRequest) -> DiscordNewsResp
     request_id = str(uuid.uuid4())
 
     # 뉴스 요약 서비스 호출
-    headline, summary, isCompleted = await summarize_discord_news_service(request.title, request.content, request_id)
+    headline, summary, isCompleted = await summarize_headiline_discordnews_service(request.title, request.content, request_id)
 
     # 표준 응답 스키마로 래핑하여 반환
     return DiscordNewsResponse(
