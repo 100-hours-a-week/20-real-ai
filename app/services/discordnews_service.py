@@ -1,8 +1,8 @@
 import json
-from app.core.llm_client import call_qwen
-from app.model.prompt_template import discord_news_prompt
+from app.models.llm_client import get_summarize_response
+from app.models.prompt_template import discord_news_prompt
 
-async def summarize_discord_news_service(title: str | None, content: str, request_id: str) -> tuple[str, str]:
+async def summarize_headiline_discordnews_service(title: str | None, content: str, request_id: str) -> tuple[str, str]:
     # 제목 조건문
     if title:
         formatted_docs = f"[title]: {title}\n[content]: {content}"
@@ -13,7 +13,7 @@ async def summarize_discord_news_service(title: str | None, content: str, reques
 
     isCompleted = True
     # 2. LLM 호출
-    response = await call_qwen(prompt, request_id)
+    response = await get_summarize_response(prompt, request_id)
 
     # 3. JSON 파싱
     try:

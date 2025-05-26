@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 from app.schemas.chat_schema import ChatRequest, ChatAnswer, ChatResponse
-from app.services.chat_service import generate_chat_response
+from app.services.chat_service import chat_service
 import uuid
 from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
@@ -14,7 +14,7 @@ async def chat_controller(req: ChatRequest) -> ChatResponse:
         raise HTTPException(status_code=400, detail="질문 내용이 비어 있습니다.")
 
     # 챗봇 응답 생성 서비스 호출
-    answer = await generate_chat_response(req.question, request_id)
+    answer = await chat_service(req.question, request_id)
 
     run = get_current_run_tree()
     if run:
