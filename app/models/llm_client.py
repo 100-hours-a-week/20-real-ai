@@ -1,10 +1,7 @@
-from app.models.qwen2_5_loader import tokenizer, llm, sampling_params
-from app.models.prompt_template import chatbot_rag_prompt
-from app.core.vector_loader import load_vectorstore
+from app.models.qwen3_loader import tokenizer, llm, sampling_params
 from dotenv import load_dotenv
 from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
-from app.core.date_utils import parse_relative_dates
 
 load_dotenv()
 
@@ -23,9 +20,9 @@ def build_prompt(user_input: str, context: str = "") -> str:
     return tokenizer.apply_chat_template(
         messages,
         tokenize=False,
-        add_generation_prompt=True,  
+        add_generation_prompt=True,
         enable_thinking=False
-    )
+        )
 
 # 비동기 generator(agen)에서 마지막 응답 요소만 수집
 async def get_last_output(agen) -> str:

@@ -1,7 +1,7 @@
 import os
 from google.cloud import storage
 from langchain_community.vectorstores import FAISS
-from app.core.embedding_model import get_embedder
+from app.models.embedding_model import get_embedder
 
 # Google Cloud Storage 설정
 GCS_BUCKET = "choon-assistance-ai-bucket"
