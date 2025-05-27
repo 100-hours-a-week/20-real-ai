@@ -52,7 +52,6 @@ async def get_chat_response(prompt: str, docs: str, request_id: str, user_id: st
     run = get_current_run_tree()
     if run:
         run.outputs = {
-            "user_id": user_id,
             "검색된 문서 수": len(docs),
             "첫 문서": docs[0].page_content[:100] if docs else "없음"
         }
