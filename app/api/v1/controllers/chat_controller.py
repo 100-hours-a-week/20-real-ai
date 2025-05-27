@@ -8,13 +8,14 @@ from langsmith.run_helpers import get_current_run_tree
 @traceable(name="Chat Controller", inputs={"질문": lambda args, kwargs: args[0].question})
 async def chat_controller(req: ChatRequest) -> ChatResponse:
     request_id = str(uuid.uuid4())
+    user_id = req.user_id
     
     # 질문이 비어있을 경우 400 에러 반환
     if not req.question.strip():
         raise HTTPException(status_code=400, detail="질문 내용이 비어 있습니다.")
 
     # 챗봇 응답 생성 서비스 호출
-    answer = await chat_service(req.question, request_id)
+    answer = await chat_service(req.question, request_id, user_id)
 
     run = get_current_run_tree()
     if run:

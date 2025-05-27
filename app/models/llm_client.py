@@ -46,12 +46,13 @@ async def get_summarize_response(prompt: str, request_id: str) -> str:
 
 # 문서 기반 챗봇 응답 함수
 @traceable(name="챗봇 질문 응답", inputs={"질문": lambda args, kwargs: args[0]})
-async def get_chat_response(prompt: str, docs: str, request_id: str) -> str:
+async def get_chat_response(prompt: str, docs: str, request_id: str, user_id: str) -> str:
     prompt_str = build_prompt(prompt)
 
     run = get_current_run_tree()
     if run:
         run.outputs = {
+            "user_id": user_id,
             "검색된 문서 수": len(docs),
             "첫 문서": docs[0].page_content[:100] if docs else "없음"
         }
