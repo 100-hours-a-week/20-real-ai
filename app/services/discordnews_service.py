@@ -1,4 +1,5 @@
 import json
+import re
 from app.models.llm_client import get_summarize_response
 from app.models.prompt_template import discord_news_prompt
 
@@ -17,6 +18,7 @@ async def summarize_headiline_discordnews_service(title: str | None, content: st
 
     # 3. JSON 파싱
     try:
+        response = re.sub(r'(\\n|\\t|\\r|\n|\t|\r)+', '', response).strip()
         parsed = json.loads(response)
         headline = parsed.get("headline", "")
         summary = parsed.get("summary", "")

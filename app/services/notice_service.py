@@ -1,4 +1,5 @@
 import json
+import re
 from app.models.llm_client import get_summarize_response
 from app.models.prompt_template import notice_summary_prompt
 
@@ -12,6 +13,7 @@ async def summarize_notice_service(title: str, content: str, request_id: str) ->
 
     # JSON 파싱
     try:
+        response = re.sub(r'(\\n|\\t|\\r|\n|\t|\r)+', '', response).strip()
         parsed = json.loads(response)
         summary = parsed.get("summary", "")
     except json.JSONDecodeError:
