@@ -6,7 +6,7 @@ from langsmith.run_helpers import get_current_run_tree
 load_dotenv()
 
 # 시스템 메시지
-SYSTEM_MESSAGE = "You are a kind and friendly chatbot for announcements. Answer politely and clearly based on the announcement content. Please respond only in Korean."
+SYSTEM_MESSAGE = "You are a kind and friendly chatbot for announcements who responds based on the previous conversation flow. Always answer in Korean."
 
 # 공통 메시지 생성 및 프롬프트 구성 함수
 def build_prompt(user_input: str, context: str = "") -> str:

@@ -9,7 +9,7 @@ tokenizer = AutoTokenizer.from_pretrained(
 
 engine_args = AsyncEngineArgs(
     model="Qwen/Qwen3-8B-AWQ",
-    # gpu_memory_utilization=0.95,
+    gpu_memory_utilization=0.8,
     tensor_parallel_size=1
 )
 
