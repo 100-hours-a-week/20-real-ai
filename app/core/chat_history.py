@@ -34,7 +34,7 @@ class InMemoryHistory(BaseChatMessageHistory, BaseModel):
 
 # 사용자별 메모리
 store = {}
-def get_session_history(userId: str) -> BaseChatMessageHistory:
+def get_session_history(userId: int) -> BaseChatMessageHistory:
     if (userId) not in store:
         store[(userId)] = InMemoryHistory()
     return store[(userId)]
