@@ -8,12 +8,12 @@ from app.core.chat_history import get_session_history, chat_history_to_string
 retriever = load_vectorstore().as_retriever(search_kwargs={"k": 2})
 
 # 사용자별 세션 히스토리에 Q/A message 저장 
-async def save_chat_history(userId: str, question: str, answer: str):
+async def save_chat_history(userId: int, question: str, answer: str):
     history = get_session_history(userId)
     history.add_user_message(question)
     history.add_ai_message(answer)
 
-async def chat_service(question: str, request_id: str, userId: str) -> str:
+async def chat_service(question: str, request_id: str, userId: int) -> str:
     # 질문 전처리 (상대 날짜 -> 절대 날짜)
     parsed_question = parse_relative_dates(question)
     
