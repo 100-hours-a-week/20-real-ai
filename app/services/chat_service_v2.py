@@ -3,11 +3,13 @@ from app.core.vector_loader import load_vectorstore
 from app.models.prompt_template import chatbot_rag_prompt
 from app.models.llm_client import get_chat_response
 from app.core.chat_history import get_session_history, chat_history_to_string
+from langsmith import traceable
 
 # 상위 2개의 문서를 검색하는 retriever 구성
 retriever = load_vectorstore().as_retriever(search_kwargs={"k": 2})
 
 # 사용자별 세션 히스토리에 Q/A message 저장 
+@traceable(name="Chat Service V2", inputs={"질문": lambda args, kwargs: args[0], "userId": lambda args, kwargs: args[2]})
 async def save_chat_history(userId: int, question: str, answer: str):
     history = get_session_history(userId)
     history.add_user_message(question)
