@@ -5,7 +5,7 @@ import uuid
 from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
 
-@traceable(name="Chat Controller", inputs={"질문": lambda args, kwargs: args[0].question})
+@traceable(name="Chat Controller V2", inputs={"질문": lambda args, kwargs: args[0].question})
 async def chat_controller(req: ChatRequest) -> ChatResponse:
     request_id = str(uuid.uuid4())
     userId = req.userId

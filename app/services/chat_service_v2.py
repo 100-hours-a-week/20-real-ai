@@ -24,7 +24,7 @@ async def chat_service(question: str, request_id: str, userId: int) -> str:
     # RAG
     docs = retriever.get_relevant_documents(parsed_question)
     context = "\n\n".join([doc.page_content for doc in docs])
-    
+
     # 프롬프트 정의 및 LLM 호출
     prompt = chatbot_rag_prompt.format(history=history_str, context=context, question=parsed_question)
     result = await get_chat_response(prompt, docs, request_id)

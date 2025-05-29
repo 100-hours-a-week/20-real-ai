@@ -1,7 +1,6 @@
 from app.models.qwen3_loader import tokenizer, llm, sampling_params
 from dotenv import load_dotenv
 from langsmith import traceable
-from langsmith.run_helpers import get_current_run_tree
 
 load_dotenv()
 
@@ -39,21 +38,13 @@ async def llm_generate(prompt_str: str, request_id: str) -> str:
     return result if result else "empty:" + prompt_str
 
 # 요약/뉴스 생성 전용 함수
-@traceable(name="요약 및 헤드라인 응답", inputs={"프롬프트": lambda args, kwargs: args[0]})
+@traceable(name="Summary LLM Response", inputs={"프롬프트": lambda args, kwargs: args[0]})
 async def get_summarize_response(prompt: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
     return await llm_generate(prompt_str, request_id)
 
 # 문서 기반 챗봇 응답 함수
-@traceable(name="챗봇 질문 응답", inputs={"질문": lambda args, kwargs: args[0]})
+@traceable(name="Chat LLM Response", inputs={"질문": lambda args, kwargs: args[0]})
 async def get_chat_response(prompt: str, docs: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
-
-    run = get_current_run_tree()
-    if run:
-        run.outputs = {
-            "검색된 문서 수": len(docs),
-            "첫 문서": docs[0].page_content[:100] if docs else "없음"
-        }
-
     return await llm_generate(prompt_str, request_id)
