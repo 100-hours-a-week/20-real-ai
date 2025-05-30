@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from app.api.router import api_router
 from app.core.error_handler import add_exception_handlers
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
