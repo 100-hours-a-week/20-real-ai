@@ -8,6 +8,9 @@ from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
+from dotenv import load_dotenv
+
+load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=OPENAI_API_KEY)
@@ -17,7 +20,7 @@ async def generate_wikinews_service(title: str, content: str, request_id: str) -
     formatted_docs = f"[title]: {title}\n[content]: {content}"
 
     # 문서 요약 및 병합
-    merged_summary = summary_from_document(formatted_docs, request_id)
+    merged_summary = await summary_from_document(formatted_docs, request_id)
 
     # 프롬프트 적용
     prompt = wiki_news_prompt.format(context=merged_summary)
