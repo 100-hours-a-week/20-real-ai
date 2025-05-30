@@ -40,7 +40,7 @@ async def generate_wikinews_service(title: str, content: str, request_id: str) -
         content = parsed.get("news", "")
 
         # 이미지 생성
-        image_url = generate_wikinews_image(content)
+        imageUrl = generate_wikinews_image(content)
     
     except json.JSONDecodeError:
         # JSON 파싱 실패 시 fallback 처리
@@ -48,13 +48,13 @@ async def generate_wikinews_service(title: str, content: str, request_id: str) -
         headline = "헤드라인 없음"
         summary = "요약 생성 실패"
         content = "뉴스 생성 실패"
-        image_url = "이미지 생성 실패"
+        imageUrl = "이미지 생성 실패"
         run = get_current_run_tree()
         if run:
             run.outputs = {
                 "파싱실패원본응답": response
             }
-    return headline, summary, content, image_url, isCompleted
+    return headline, summary, content, imageUrl, isCompleted
 
 
 async def summary_from_document(formatted_docs: str, request_id: str) -> str:
