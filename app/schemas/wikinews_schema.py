@@ -3,6 +3,7 @@ from pydantic import BaseModel
 class WikiNewsRequest(BaseModel):
     title: str
     content: str
+    presignedUrl: str
 
 class WikiNewsData(BaseModel):
     headline: str

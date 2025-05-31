@@ -4,6 +4,7 @@ import os
 from openai import OpenAI
 from app.models.llm_client import get_summarize_response
 from app.models.prompt_template import wiki_news_prompt, image_prompt
+from app.utils.s3_uploader import upload_image_to_s3
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langsmith import traceable
@@ -15,8 +16,9 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=OPENAI_API_KEY)
 
+
 @traceable(name="WikiNews Service", inputs={"title": lambda args, kwargs: args[0], "content": lambda args, kwargs: args[1]})
-async def generate_wikinews_service(title: str, content: str, request_id: str) -> tuple[str, str, str, str, bool]:
+async def generate_wikinews_service(title: str, content: str, presignedUrl: str, request_id: str) -> tuple[str, str, str, str, bool]:
     formatted_docs = f"[title]: {title}\n[content]: {content}"
 
     # 문서 요약 및 병합
@@ -41,6 +43,12 @@ async def generate_wikinews_service(title: str, content: str, request_id: str) -
 
         # 이미지 생성
         imageUrl = generate_wikinews_image(content)
+
+        # presigned URL에 업로드
+        upload_image_to_s3(imageUrl, presignedUrl)
+
+        # 이미지 최종 URL 반환
+        imageUrl = presignedUrl.split("?")[0]
     
     except json.JSONDecodeError:
         # JSON 파싱 실패 시 fallback 처리
@@ -76,7 +84,7 @@ async def summary_from_document(formatted_docs: str, request_id: str) -> str:
     return "\n\n".join(summaries)
 
 
-def generate_wikinews_image(content: str) -> dict:
+def generate_wikinews_image(content: str) -> str:
     # 이미지 프롬프트 구성
     prompt = image_prompt.format(news=content)
 

@@ -8,7 +8,7 @@ async def wiki_news_controller(request: WikiNewsRequest) -> WikiNewsResponse:
     request_id = str(uuid.uuid4())
 
     # 헤드라인, 요약, 뉴스, 이미지 서비스 호출
-    headline, summary, content, imageUrl, isCompleted = await generate_wikinews_service(request.title, request.content, request_id)
+    headline, summary, content, imageUrl, isCompleted = await generate_wikinews_service(request.title, request.content, request.presignedUrl, request_id)
 
     # 표준 응답 스키마로 래핑하여 반환
     return WikiNewsResponse(
