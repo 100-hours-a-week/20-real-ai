@@ -1,5 +1,5 @@
 import requests
-
+from langsmith.run_helpers import get_current_run_tree
 
 def download_image_as_bytes(url: str) -> bytes:
     # 이미지 URL에서 바이너리 데이터 다운로드
@@ -15,11 +15,16 @@ def upload_image_to_s3(image_url: str, presigned_url: str):
 
     # S3 presigned URL에 PUT 요청으로 업로드
     headers = {
-        'Content-Type': 'application/octet-stream'
+        'Content-Type': 'iamge/png'
     }
     response = requests.put(presigned_url, data=image_bytes, headers=headers)
     
+    run = get_current_run_tree()
     if response.status_code == 200:
-        print("✅ 업로드 성공")
+        run.log_event("upload_success", {"status_code": response.status_code})
     else:
-        raise Exception(f"❌ 업로드 실패: {response.status_code} - {response.text}")
+        run.log_event("upload_failure", {
+            "status_code": response.status_code,
+            "response_text": response.text
+        })
+        # raise Exception(f"❌ 업로드 실패: {response.status_code} - {response.text}")
