@@ -39,10 +39,10 @@ async def generate_wikinews_service(title: str, content: str, presignedUrl: str,
 
         headline = parsed.get("headline", "")
         summary = parsed.get("summary", "")
-        content = parsed.get("news", "")
+        news = parsed.get("news", "")
 
         # 이미지 생성
-        imageUrl = generate_wikinews_image(content)
+        imageUrl = generate_wikinews_image(news)
 
         # presigned URL에 업로드
         upload_image_to_s3(imageUrl, presignedUrl)
@@ -52,17 +52,17 @@ async def generate_wikinews_service(title: str, content: str, presignedUrl: str,
     
     except json.JSONDecodeError:
         # JSON 파싱 실패 시 fallback 처리
-        isCompleted = True
+        isCompleted = False
         headline = "헤드라인 없음"
         summary = "요약 생성 실패"
-        content = "뉴스 생성 실패"
+        news = "뉴스 생성 실패"
         imageUrl = "이미지 생성 실패"
         run = get_current_run_tree()
         if run:
             run.outputs = {
                 "파싱실패원본응답": response
             }
-    return headline, summary, content, imageUrl, isCompleted
+    return headline, summary, news, imageUrl, isCompleted
 
 
 async def summary_from_document(formatted_docs: str, request_id: str) -> str:
@@ -84,9 +84,9 @@ async def summary_from_document(formatted_docs: str, request_id: str) -> str:
     return "\n\n".join(summaries)
 
 
-def generate_wikinews_image(content: str) -> str:
+def generate_wikinews_image(news: str) -> str:
     # 이미지 프롬프트 구성
-    prompt = image_prompt.format(news=content)
+    prompt = image_prompt.format(news=news)
 
     # 이미지 생성 요청
     image_response = client.images.generate(

@@ -8,7 +8,7 @@ class WikiNewsRequest(BaseModel):
 class WikiNewsData(BaseModel):
     headline: str
     summary: str
-    content: str
+    news: str
     imageUrl: str
     isCompleted: bool
 
