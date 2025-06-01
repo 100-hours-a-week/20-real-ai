@@ -15,16 +15,14 @@ def upload_image_to_s3(image_url: str, presigned_url: str):
 
     # S3 presigned URL에 PUT 요청으로 업로드
     headers = {
-        'Content-Type': 'iamge/png'
+        'Content-Type': 'image/png'
     }
     response = requests.put(presigned_url, data=image_bytes, headers=headers)
     
     run = get_current_run_tree()
     if response.status_code == 200:
-        run.log_event("upload_success", {"status_code": response.status_code})
+        run.add_event("upload_success")
     else:
-        run.log_event("upload_failure", {
-            "status_code": response.status_code,
-            "response_text": response.text
-        })
+        run.add_event("upload_failure")
+        run.add_outputs({"파싱실패원본응답": response.text})
         # raise Exception(f"❌ 업로드 실패: {response.status_code} - {response.text}")
