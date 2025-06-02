@@ -19,8 +19,7 @@ def build_prompt(user_input: str, context: str = "") -> str:
     return tokenizer.apply_chat_template(
         messages,
         tokenize=False,
-        add_generation_prompt=True,
-        enable_thinking=False
+        add_generation_prompt=True
         )
 
 # 비동기 generator(agen)에서 마지막 응답 요소만 수집
