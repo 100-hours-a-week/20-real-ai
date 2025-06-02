@@ -1,6 +1,7 @@
 from app.models.qwen3_loader import tokenizer, llm, sampling_params
 from dotenv import load_dotenv
 from langsmith import traceable
+from langsmith.run_helpers import get_current_run_tree
 
 load_dotenv()
 
@@ -48,3 +49,21 @@ async def get_summarize_response(prompt: str, request_id: str) -> str:
 async def get_chat_response(prompt: str, docs: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
     return await llm_generate(prompt_str, request_id)
+
+# 스트리밍 기반 챗봇 응답 함수 
+@traceable(name="Chat LLM Stream", inputs={"질문": lambda args, kwargs: args[0]})
+def get_chat_response_stream(prompt: str, docs, request_id: str):
+
+    # 1) 실제 호출할 prompt 구성 (history/context는 이미 포함된 prompt 인자로 넘어왔다고 가정)
+    prompt_str = build_prompt(prompt)
+
+    # 2) vLLM 스트리밍 제너레이터 객체 가져오기
+    agen = llm.generate(prompt_str, sampling_params, request_id=request_id)
+
+    # 3) “순수 텍스트 청크”만 뽑아서 다시 yield하는 async 제너레이터 래퍼
+    async def _wrapper():
+        async for result in agen:
+            if result.outputs and result.outputs[0].text:
+                yield result.outputs[0].text
+
+    return _wrapper()
