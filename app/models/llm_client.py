@@ -1,6 +1,8 @@
 from app.models.qwen3_loader import tokenizer, llm, sampling_params
 from dotenv import load_dotenv
 from langsmith import traceable
+from difflib import ndiff
+import re
 
 load_dotenv()
 
@@ -52,29 +54,21 @@ async def get_chat_response(prompt: str, docs: str, request_id: str) -> str:
 # 스트리밍 기반 챗봇 응답 함수 
 @traceable(name="Chat LLM Stream", inputs={"질문": lambda args, kwargs: args[0]})
 def get_chat_response_stream(prompt: str, docs, request_id: str):
-
-    # 1) 실제 호출할 prompt 구성 (history/context는 이미 포함된 prompt 인자로 넘어왔다고 가정)
+    sent_text = ""
     prompt_str = build_prompt(prompt)
-
-    # 2) vLLM 스트리밍 제너레이터 객체 가져오기
     agen = llm.generate(prompt_str, sampling_params, request_id=request_id)
 
-    # 3) “순수 텍스트 청크”만 뽑아서 다시 yield하는 async 제너레이터 래퍼
     async def _wrapper():
-        last_text = ""
+        nonlocal sent_text
         async for result in agen:
-            if result.outputs and result.outputs[0].text:
-                text = result.outputs[0].text
+            text = result.outputs[0].text
+            new_text = text[len(sent_text):]
+            sent_text = text
 
-                if text.startswith(last_text):
-                    # 앞부분이 같으면 안전하게 잘라서 델타만 추출
-                    delta = text[len(last_text):]
-                else:
-                    # 앞부분이 꼬였으면, 일단 전체를 델타로 간주
-                    delta = text
+            for word in re.findall(r'\s+|\S+', new_text):
+                yield word
 
-                if delta:
-                    yield delta
-                    last_text = text
+            if result.finished:
+                return
 
     return _wrapper()
