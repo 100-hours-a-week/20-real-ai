@@ -3,7 +3,6 @@ from app.core.vector_loader import load_vectorstore
 from app.models.prompt_template import chatbot_rag_prompt
 from app.models.llm_client import get_chat_response_stream
 from app.core.chat_history import get_session_history, chat_history_to_string
-import asyncio
 
 # 상위 2개의 문서를 검색하는 retriever 구성
 retriever = load_vectorstore().as_retriever(search_kwargs={"k": 2})
@@ -34,8 +33,11 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
 
     answer_collector = []
     async for chunk in agen:
+        yield f"data: {chunk}\n\n"
         answer_collector.append(chunk)
-        yield chunk
+
+    # 스트리밍 종료 알림 이벤트
+    yield "event: end_of_stream\ndata: \n\n"
 
     full_answer = "".join(answer_collector)
     

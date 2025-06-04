@@ -1,7 +1,6 @@
 from app.models.qwen3_loader import tokenizer, llm, sampling_params
 from dotenv import load_dotenv
 from langsmith import traceable
-from langsmith.run_helpers import get_current_run_tree
 
 load_dotenv()
 
@@ -66,7 +65,14 @@ def get_chat_response_stream(prompt: str, docs, request_id: str):
         async for result in agen:
             if result.outputs and result.outputs[0].text:
                 text = result.outputs[0].text
-                delta = text[len(last_text):]
+
+                if text.startswith(last_text):
+                    # 앞부분이 같으면 안전하게 잘라서 델타만 추출
+                    delta = text[len(last_text):]
+                else:
+                    # 앞부분이 꼬였으면, 일단 전체를 델타로 간주
+                    delta = text
+
                 if delta:
                     yield delta
                     last_text = text
