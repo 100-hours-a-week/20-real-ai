@@ -2,7 +2,7 @@ from google.cloud import storage
 import os
 
 # Google Cloud Storage 설정
-bucket_name = "choon-assistance-ai-bucket"
+bucket_name = "choon-assistance-ai-bucket-v2"
 source_dir = "../vector/faiss_index"
 destination_prefix = "vector/faiss_index"
 
