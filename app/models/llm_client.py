@@ -62,8 +62,13 @@ def get_chat_response_stream(prompt: str, docs, request_id: str):
 
     # 3) “순수 텍스트 청크”만 뽑아서 다시 yield하는 async 제너레이터 래퍼
     async def _wrapper():
+        last_text = ""
         async for result in agen:
             if result.outputs and result.outputs[0].text:
-                yield result.outputs[0].text
+                text = result.outputs[0].text
+                delta = text[len(last_text):]
+                if delta:
+                    yield delta
+                    last_text = text
 
     return _wrapper()

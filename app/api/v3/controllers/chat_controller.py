@@ -7,7 +7,7 @@ from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
 import json
 
-@traceable(name="Chat Controller V2 (Streaming)", inputs={"질문": lambda args, kwargs: args[0].question})
+@traceable(name="Chat Controller V3", inputs={"질문": lambda args, kwargs: args[0].question})
 async def chat_controller_stream(req: ChatRequest):
     request_id = str(uuid.uuid4())
     userId = req.userId
