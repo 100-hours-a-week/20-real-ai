@@ -28,10 +28,7 @@ async def chat_controller_stream(req: ChatRequest):
     # 작은 유틸: 단일 청크를 SSE 이벤트(f"data: {{...}}\n\n")로 포매팅
     async def event_streamer():
         async for chunk in token_generator:
-            # chunk는 vLLM이 반환한 “문자열 한 덩어리”라고 가정
-            # 필요 시 JSON 포맷으로 감싸고 싶다면 아래처럼:
-            payload = {"delta": chunk}
-            yield f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
+            yield f"data: {chunk}\n\n"
         # 스트리밍 완료를 알리는 이벤트 (optional)
         yield "event: end_of_stream\ndata: {}\n\n"
 
