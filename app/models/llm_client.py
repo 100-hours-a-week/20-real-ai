@@ -1,5 +1,7 @@
 from app.models.qwen3_loader import tokenizer, llm, sampling_params
 from langsmith import traceable
+from difflib import ndiff
+import re
 
 # 시스템 메시지
 SYSTEM_MESSAGE = "You are a kind and friendly chatbot for announcements who responds based on the previous conversation flow. Always answer in Korean."
@@ -45,3 +47,25 @@ async def get_summarize_response(prompt: str, request_id: str) -> str:
 async def get_chat_response(prompt: str, docs: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
     return await llm_generate(prompt_str, request_id)
+
+# 스트리밍 기반 챗봇 응답 함수 
+@traceable(name="Chat LLM Stream", inputs={"질문": lambda args, kwargs: args[0]})
+def get_chat_response_stream(prompt: str, docs, request_id: str):
+    sent_text = ""
+    prompt_str = build_prompt(prompt)
+    agen = llm.generate(prompt_str, sampling_params, request_id=request_id)
+
+    async def _wrapper():
+        nonlocal sent_text
+        async for result in agen:
+            text = result.outputs[0].text
+            new_text = text[len(sent_text):]
+            sent_text = text
+
+            for word in re.findall(r'\s+|\S+', new_text):
+                yield word
+
+            if result.finished:
+                return
+
+    return _wrapper()
