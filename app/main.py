@@ -13,7 +13,8 @@ origins = [
     "http://test.kakaotech.com",
     "https://dev.kakaotech.com",
     "https://www.kakaotech.com",
-    "https://kakaotech.com"
+    "https://kakaotech.com",
+    "https://cadev.kakaotech.com/"
 ]
 
 # CORS 미들웨어 등록
