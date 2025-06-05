@@ -1,12 +1,10 @@
-# notion_general.md (노션 통합 공지)
-
 # Title: 휴가 신청 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181529061f798d56a9299?pvs=4](https://www.notion.so/1c7c0ff4ce3181529061f798d56a9299?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181529061f798d56a9299?pvs=4](https://www.notion.so/1c7c0ff4ce3181529061f798d56a9299?pvs=21)
 
-# 내용:
+## 내용:
 
 휴가는 사전에 최소 3일 전(평일 기준, 공휴일/주말 제외)까지 통합신청센터를 통해 신청해야 합니다.
 
@@ -45,13 +43,13 @@
 
 # Title: 입사시험(면접) 신청 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318111951ac12c92183943?pvs=4](https://www.notion.so/1c7c0ff4ce318111951ac12c92183943?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318111951ac12c92183943?pvs=4](https://www.notion.so/1c7c0ff4ce318111951ac12c92183943?pvs=21)
 
-# 내용:
+## 내용:
 
-### **입사시험(면접) 신청 안내**
+**입사시험(면접) 신청 안내**
 
 입사시험(면접)은 사전에 최소 3일 전(평일 기준, 공휴일 제외)까지 통합신청센터를 통해 신청해야 합니다.
 
@@ -110,11 +108,11 @@
 
 # Title: 질병 및 입원 신청 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318121aef4c35dc7a624d4?pvs=4](https://www.notion.so/1c7c0ff4ce318121aef4c35dc7a624d4?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318121aef4c35dc7a624d4?pvs=4](https://www.notion.so/1c7c0ff4ce318121aef4c35dc7a624d4?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **질병 및 입원 신청 안내**
 
@@ -183,11 +181,11 @@
 
 # Title: 예비군 신청 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31813196d8f1b991936385?pvs=4](https://www.notion.so/1c7c0ff4ce31813196d8f1b991936385?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31813196d8f1b991936385?pvs=4](https://www.notion.so/1c7c0ff4ce31813196d8f1b991936385?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **예비군/민방위/징병검사 신청 안내**
 
@@ -256,11 +254,11 @@
 
 # Title: 경조사(결혼•사망) 신청 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31819b8f3dfd9fc327a2de?pvs=4](https://www.notion.so/1c7c0ff4ce31819b8f3dfd9fc327a2de?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31819b8f3dfd9fc327a2de?pvs=4](https://www.notion.so/1c7c0ff4ce31819b8f3dfd9fc327a2de?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **결혼 및 조사(사망) 신청 안내**
 
@@ -335,11 +333,11 @@
 
 # Title: 해커톤&공모전 신청 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31819e9fd2dab0740240c7?pvs=4](https://www.notion.so/1c7c0ff4ce31819e9fd2dab0740240c7?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31819e9fd2dab0740240c7?pvs=4](https://www.notion.so/1c7c0ff4ce31819e9fd2dab0740240c7?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **해커톤/공모전 신청 안내**
 
@@ -402,11 +400,11 @@
 
 # Title: 자격증(훈련•시험) 신청 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181e89acefa316a0b55a6?pvs=4](https://www.notion.so/1c7c0ff4ce3181e89acefa316a0b55a6?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181e89acefa316a0b55a6?pvs=4](https://www.notion.so/1c7c0ff4ce3181e89acefa316a0b55a6?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **자격증 시험 신청 안내**
 
@@ -463,11 +461,11 @@
 
 # Title: HRD-Net 앱 오류 발생 시, 대처 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/HRD-Net-1c7c0ff4ce31813f9f05f36efce387aa?pvs=4](https://www.notion.so/1c7c0ff4ce31813f9f05f36efce387aa?pvs=21)
+## Link: [https://www.notion.so/goormkdx/HRD-Net-1c7c0ff4ce31813f9f05f36efce387aa?pvs=4](https://www.notion.so/1c7c0ff4ce31813f9f05f36efce387aa?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **출결 정정 신청 안내**
 
@@ -538,11 +536,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 파일 다운받기
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31813fb071cf8cd57479a2?pvs=4](https://www.notion.so/1c7c0ff4ce31813fb071cf8cd57479a2?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31813fb071cf8cd57479a2?pvs=4](https://www.notion.so/1c7c0ff4ce31813fb071cf8cd57479a2?pvs=21)
 
-# 내용:
+## 내용:
 
  출석관련 서류들은 해당 링크에서 확인 가능합니다.
 
@@ -550,11 +548,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 모니터 이상 현상 신청 명단
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3180af8474dc007c6eec94?pvs=4](https://www.notion.so/1c7c0ff4ce3180af8474dc007c6eec94?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3180af8474dc007c6eec94?pvs=4](https://www.notion.so/1c7c0ff4ce3180af8474dc007c6eec94?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **워크스페이스 모니터 이상 현상 신청 안내**
 
@@ -577,11 +575,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 동아리 지원 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318103bc2fd7015609f3bf?pvs=4](https://www.notion.so/1c7c0ff4ce318103bc2fd7015609f3bf?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318103bc2fd7015609f3bf?pvs=4](https://www.notion.so/1c7c0ff4ce318103bc2fd7015609f3bf?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **카카오테크 부트캠프 동아리 활동 안내**
 
@@ -653,11 +651,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 이벤트 사진 공유용
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181079f85c078e361c1b4?pvs=4](https://www.notion.so/1c7c0ff4ce3181079f85c078e361c1b4?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181079f85c078e361c1b4?pvs=4](https://www.notion.so/1c7c0ff4ce3181079f85c078e361c1b4?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **이벤트 사진 공유 안내**
 
@@ -673,11 +671,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 공유 도서관 신청 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31814c8c92c261d44b36da?pvs=4](https://www.notion.so/1c7c0ff4ce31814c8c92c261d44b36da?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31814c8c92c261d44b36da?pvs=4](https://www.notion.so/1c7c0ff4ce31814c8c92c261d44b36da?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **공유 도서관 이용 안내**
 
@@ -718,11 +716,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 자격증 응시료 지원 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181c7a40ae817064dd772?pvs=4](https://www.notion.so/1c7c0ff4ce3181c7a40ae817064dd772?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181c7a40ae817064dd772?pvs=4](https://www.notion.so/1c7c0ff4ce3181c7a40ae817064dd772?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **카카오테크 부트캠프 자격증 응시료 지원 안내**
 
@@ -775,11 +773,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 전문 서적 지원 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181a28824fd7c0483a32b?pvs=4](https://www.notion.so/1c7c0ff4ce3181a28824fd7c0483a32b?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181a28824fd7c0483a32b?pvs=4](https://www.notion.so/1c7c0ff4ce3181a28824fd7c0483a32b?pvs=21)
 
-# 내용:
+## 내용:
 
 ### **카카오테크 부트캠프 전문 서적 지원 안내**
 
@@ -842,11 +840,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 훈련 장려금
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31812e85ecc3cde18ea687](https://www.notion.so/1c7c0ff4ce31812e85ecc3cde18ea687?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31812e85ecc3cde18ea687](https://www.notion.so/1c7c0ff4ce31812e85ecc3cde18ea687?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 훈련 장려금
 
@@ -889,11 +887,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 경고 및 제적 기준
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181509453d06ca9e5d568](https://www.notion.so/1c7c0ff4ce3181509453d06ca9e5d568?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181509453d06ca9e5d568](https://www.notion.so/1c7c0ff4ce3181509453d06ca9e5d568?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 경고 기준
 
@@ -938,11 +936,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 교육 중도 포기 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181fdb00ce2a33926e6a5](https://www.notion.so/1c7c0ff4ce3181fdb00ce2a33926e6a5?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181fdb00ce2a33926e6a5](https://www.notion.so/1c7c0ff4ce3181fdb00ce2a33926e6a5?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 중도포기 신청 전 안내사항
 
@@ -990,11 +988,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 성장격려금
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31817fa37cc10cfb58c172](https://www.notion.so/1c7c0ff4ce31817fa37cc10cfb58c172?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31817fa37cc10cfb58c172](https://www.notion.so/1c7c0ff4ce31817fa37cc10cfb58c172?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 성장격려금이란?
 
@@ -1041,11 +1039,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 출석 기준 진행 방법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181db8dd0f00ab5e272b5](https://www.notion.so/1c7c0ff4ce3181db8dd0f00ab5e272b5?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce3181db8dd0f00ab5e272b5](https://www.notion.so/1c7c0ff4ce3181db8dd0f00ab5e272b5?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 출석 용어
 
@@ -1115,11 +1113,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 교육 일정 안내 (휴강 및 공휴일)
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31818eac67d67a3eb9abb8](https://www.notion.so/1c7c0ff4ce31818eac67d67a3eb9abb8?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31818eac67d67a3eb9abb8](https://www.notion.so/1c7c0ff4ce31818eac67d67a3eb9abb8?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 휴강 및 공휴일 안내
 
@@ -1139,11 +1137,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 3월 18일 ~ 오프라인 출결 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/3-18-1c7c0ff4ce3181dfaaa3fe8c11264457](https://www.notion.so/1c7c0ff4ce3181dfaaa3fe8c11264457?pvs=21)
+## Link: [https://www.notion.so/goormkdx/3-18-1c7c0ff4ce3181dfaaa3fe8c11264457](https://www.notion.so/1c7c0ff4ce3181dfaaa3fe8c11264457?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 3월 18일부터 적용되는 오프라인 출결 방식 안내
 
@@ -1184,11 +1182,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 교육장 오시는 길
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318150a1def4a38ab0194c](https://www.notion.so/1c7c0ff4ce318150a1def4a38ab0194c?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318150a1def4a38ab0194c](https://www.notion.so/1c7c0ff4ce318150a1def4a38ab0194c?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 주차 지원이 불가하오니 꼭 대중교통 이용을 부탁드립니다!!
 
@@ -1208,11 +1206,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 교육장 사용법
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318120a5f4f6a71c6738ea](https://www.notion.so/1c7c0ff4ce318120a5f4f6a71c6738ea?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce318120a5f4f6a71c6738ea](https://www.notion.so/1c7c0ff4ce318120a5f4f6a71c6738ea?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 교육장 이용 시간 및 경비 안내
 
@@ -1267,11 +1265,11 @@ HRD-Net 앱 오류 발생 시, 관련 증빙 서류 3가지를 반드시 준비�
 
 # Title: 구름 스퀘어 예약 및 이용 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link:[https://www.notion.so/goormkdx/1c7c0ff4ce3181faa63efd98fe907eca](https://www.notion.so/1c7c0ff4ce3181faa63efd98fe907eca?pvs=21)
+## Link:[https://www.notion.so/goormkdx/1c7c0ff4ce3181faa63efd98fe907eca](https://www.notion.so/1c7c0ff4ce3181faa63efd98fe907eca?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 구름 스퀘어란?
 
@@ -1301,11 +1299,11 @@ IT 기술 교육에 관심 있는 인재를 위한 공간으로, **중소기업 
 
 # Title: 카카오테크 부트캠프 ZEP 이용 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/ZEP-1c7c0ff4ce318130beb7e82de89e95be](https://www.notion.so/1c7c0ff4ce318130beb7e82de89e95be?pvs=21)
+## Link: [https://www.notion.so/goormkdx/ZEP-1c7c0ff4ce318130beb7e82de89e95be](https://www.notion.so/1c7c0ff4ce318130beb7e82de89e95be?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 카카오테크 부트캠프 ZEP이란?
 
@@ -1337,11 +1335,11 @@ ZEP 안에서 자유롭게 학습하고, 배운 것을 공유하며 함께 성�
 
 # Title: EXP 학습 미션 피드백 받고 미션 완료하기!
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/EXP-1c7c0ff4ce3181f5a791d04c68c8f81d](https://www.notion.so/1c7c0ff4ce3181f5a791d04c68c8f81d?pvs=21)
+## Link: [https://www.notion.so/goormkdx/EXP-1c7c0ff4ce3181f5a791d04c68c8f81d](https://www.notion.so/1c7c0ff4ce3181f5a791d04c68c8f81d?pvs=21)
 
-# 내용:
+## 내용:
 
 ## 피드백 요청 방법
 
@@ -1381,11 +1379,11 @@ ZEP 안에서 자유롭게 학습하고, 배운 것을 공유하며 함께 성�
 
 # Title: 카카오테크 부트캠프 회의실 예약 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31811bbf07e1dbe130a8f1](https://www.notion.so/1c7c0ff4ce31811bbf07e1dbe130a8f1?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1c7c0ff4ce31811bbf07e1dbe130a8f1](https://www.notion.so/1c7c0ff4ce31811bbf07e1dbe130a8f1?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 카카오테크 부트캠프 내 회의실 예약 방법 안내
 
@@ -1419,11 +1417,11 @@ ZEP 안에서 자유롭게 학습하고, 배운 것을 공유하며 함께 성�
 
 # Title: 교육장 경비 시작 및 해제 안내
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/1d5c0ff4ce3180ce8c0cec4e285542f8](https://www.notion.so/1d5c0ff4ce3180ce8c0cec4e285542f8?pvs=21)
+## Link: [https://www.notion.so/goormkdx/1d5c0ff4ce3180ce8c0cec4e285542f8](https://www.notion.so/1d5c0ff4ce3180ce8c0cec4e285542f8?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 교육장 이용 시 경비 시작 및 해제 필수 안내
 
@@ -1440,11 +1438,11 @@ ZEP 안에서 자유롭게 학습하고, 배운 것을 공유하며 함께 성�
 
 # Title: 카카오 현직자 멘토링 (5/9~7/18)
 
-# Category: Notion
+## Category: Notion
 
-# Link: [https://www.notion.so/goormkdx/5-9-7-18-1e3c0ff4ce3180518a6be0e3c094bc3e](https://www.notion.so/1e3c0ff4ce3180518a6be0e3c094bc3e?pvs=21)
+## Link: [https://www.notion.so/goormkdx/5-9-7-18-1e3c0ff4ce3180518a6be0e3c094bc3e](https://www.notion.so/1e3c0ff4ce3180518a6be0e3c094bc3e?pvs=21)
 
-# 내용:
+## 내용:
 
 ### 카카오 커리어 멘토링
 
@@ -1455,15 +1453,233 @@ ZEP 안에서 자유롭게 학습하고, 배운 것을 공유하며 함께 성�
 - **일정**:
     - 5/9(금), 5/16(금), 5/23(금), 5/29(목), 6/13(금), 6/20(금), 6/26(목), 7/4(금), 7/11(금), 7/18(금)
     - **총 10회 진행**
+| 회차 | 주제 |
+|------|------|
+| 1회차 | 이력서/포트폴리오 멘토링 *(이력서 중심)* |
+| 2회차 | 이력서/포트폴리오 멘토링 *(포트폴리오 중심)* |
+| 3회차 | 모의면접 1 |
+| 4회차 | 이력서/포트폴리오 멘토링 |
+| 5회차 | 모의면접 2 |
+| 6회차 | 이력서/포트폴리오 멘토링 |
+| 7회차 | 모의면접 3 |
+| 8회차 | 모의면접 4 |
+| 9회차 | 모의면접 5 |
+| 10회차 | 모의면접 6 |
 - **멘토링 시간**:
     - 14:00 ~ 18:00
     - 팀별 구분에 따라 시간 상이
-        - A팀: 14:00 ~ 16:00
-        - B팀: 16:00 ~ 18:00
+        - 멘토 A팀: 14:00 ~ 16:00
+        - 멘토 B팀: 16:00 ~ 18:00
 - **진행 방식**:
     - 팀별 전담 멘토링 (팀당 1시간씩 총 10시간)
-    - 자세한 일정 및 시간표는 아래 구글 시트를 참고
+    - 자세한 일정 및 시간표는 노션 내 구글 시트를 참고
 - **질문 방법**:
     - 커리어 및 진로 관련 질문은 멘토님께 DM으로 직접 문의
     - 단, **프로젝트 관련 질문은 디스코드 카카오-소통방에서 진행**
-- **팀별 담당 멘토 및 세부 시간표**는 링크를 통해 확인 가능
+- **팀별 담당 멘토 및 세부 시간표**는 노션 내 공지항을 통해 확인 가능
+
+### AI 멘토링 (총 3회차)
+| 회차 | 주제 |
+|------|------|
+| 1회차 | - 고급 프롬프트 엔지니어링<br> - RAG 기반 지식 검색·관리<br> - 콘텐츠 검열·안전성 확보 |
+| 2회차 | - 개인화 추천·매칭 시스템 설계<br> - 멀티모달 AI 파이프라인 |
+| 3회차 | - 대화형 챗봇 아키텍처·UX 설계<br> - 배포·모니터링·MLOps 기초 |
+
+
+---
+# Title: 멘토링 질문 준비 안내
+
+## Category: Notion
+
+## Link: [https://www.notion.so/adapterz/1e0394a4806180c58412cd79f2824441](https://www.notion.so/adapterz/1e0394a4806180c58412cd79f2824441)
+
+## 내용:
+
+### 멘토링 기본 방향
+- 멘토링은 기본적으로 **‘이력서 / 포트폴리오 / 모의면접’ 중심**으로 진행됩니다.
+- 단, **프로젝트 관련 질문도 가능**하니 멘토와의 시간을 적극적으로 활용하세요.
+- **짧은 시간 동안 양질의 피드백**을 받으려면 반드시 **구체적이고 명확한 질문**을 준비해 가는 것이 중요합니다.
+- 노션에 참고용 1기 질문 리스트 기록이 있으니 확인바랍니다.
+
+### 질문 제출 가이드
+- 각 조 대표자는 노션 내 올라온 양식으로 **깃헙 이슈 템플릿**을 만들어주세요
+- 이슈를 작성한 후, 멘토링용 질문 제출 폼을 통해 구글 폼으로 사전 제출해 주세요. (노션 참고)
+- 멘토가 사전 검토할 수 있도록 여유 있게 제출하는 것이 중요합니다.
+- 프로젝트와 무관한 진로/학습/면접 등의 질문은 아래 깃헙 디스커션 게시판에 등록해 주세요.
+
+---
+# Title: 5월 스케줄 안내
+
+## Category: Notion
+
+## Link: [https://www.notion.so/adapterz/5-1e5394a4806180b682e0dd65b934b223](https://www.notion.so/adapterz/5-1e5394a4806180b682e0dd65b934b223)
+
+## 내용:
+
+### 기본 일일 운영 일정 (월~금)
+| 시간대 | 주요 활동 |
+|--------|-----------|
+| 09:05 ~ 09:10 | 대표자 스크럼<br>팀원: 스크럼 준비 |
+| 09:10 ~ 09:30 | 스크럼 |
+| 09:30 ~ 09:50 | 트러블 슈팅 로그 작성 |
+| 09:50 ~ 10:00 | 휴식 |
+| 10:00 ~ 11:50 | 코드스터디 및 모의면접<br>※ 요일별 강사 상이 |
+| 12:00 ~ 13:00 | 점심 시간 |
+| 13:00 ~ 18:00 | 프로젝트 개발 (중간 휴식 포함)<br>※ 목요일: 17:00 ~ 대표자 미팅 |
+
+### 코드스터디 가이드
+- **목적**: 코드 이해도 향상, 책임감 있는 개발, 팀 내 피드백
+- **형식**: GitHub 커밋 + 이슈 기반 질의응답
+- **주요 절차**:
+  1. 코드 공유 및 이슈 작성 (`질문` 라벨)
+  2. 리뷰이 설명 → 리뷰어 질문 → 상호 피드백
+  3. 비동기 이슈 댓글 기반 진행 (2시간 내)
+
+### 트러블 슈팅 로그 가이드
+
+- **작성 시간**: 매일 오전 9:30
+- **위치**: GitHub Wiki > `troubleshooting notes` Project
+- **포맷 예시** 는 노션을 참고해주세요
+
+### PM / PL 미팅 운영
+
+- **월요일**: PM 제품 방향 회의 (주 강사)
+- **화/수요일**: PL 기술 리뷰 회의 (스택별)
+- **17:00 ~ 17:30**: 줌 자유 Q&A 운영
+
+---
+# Title: 모의 면접 방법 안내
+
+## Category: Notion
+
+## Link: [https://www.notion.so/adapterz/1f9394a4806180f099f5f597dea9790e](https://www.notion.so/adapterz/1f9394a4806180f099f5f597dea9790e)
+
+## 내용:
+### 진행방식
+모의면접은 **멘토 1명**, **면접자 3~4명**, **관전자 3~4명**으로 구성됩니다. 각 역할에 따라 아래와 같은 업무를 수행합니다:
+
+| 역할 | 담당자 | 주요 업무 |
+|------|---------|-----------|
+| **면접관** | 멘토 (1명) | - 사전에 준비된 질문지를 바탕으로 수강생 3명에게 동일한 질문을 진행합니다.<br>- 면접이 종료된 후, 태도·말투·자세 등에 대한 피드백을 제공합니다.<br>- 피드백은 GitHub Wiki 내 프로젝트 카드에 기록합니다. |
+| **면접자** | 수강생 (3명 또는 4명) | - 면접관의 질문에 답변하며 실제 면접 상황을 경험합니다. |
+| **관전자** | 수강생 (3명 또는 4명) | - 면접 진행을 관찰하고, 태도·말투·자세 등에 대한 피드백을 제공합니다.<br>- 피드백 내용은 GitHub Wiki 프로젝트 카드에 개별적으로 작성합니다. |
+
+모의면접은 다음과 같은 순서로 진행됩니다:
+
+| 순서 | 내용 | 시간 |
+|------|------|------|
+| 1 | **1차 모의면접** (A·B·C 수강생 대상) | 15분 |
+| 2 | **1차 피드백** (멘토 → 관전자 순서로 진행) | 10분 |
+| 3 | **2차 모의면접** (동일 수강생 대상) | 15분 |
+| 4 | **2차 피드백** (멘토 → 관전자 순서로 진행) | 10분 |
+
+### 예외사항
+- 한 조에 수강생이 **7명일 경우**, **5주차 모의면접**에서는 **4명만 참여**하여 진행합니다.
+
+### 기타안내
+- **면접자 배정은 멘토가 사전에 결정**합니다.  
+  - 예: 3주차 – A, B, C / 5주차 – D, E, F
+- **피드백은 반드시 멘토가 먼저 진행**한 후, 관전자가 이어서 진행해야 합니다.
+- **관전자의 피드백은 GitHub Wiki의 프로젝트 카드**에 각 수강생 별로 개별 작성해 주세요.
+
+---
+# Title: 유료 구독료 및 사용료 지원 안내
+
+## Category: Notion
+
+## 내용:
+
+##  ChatGPT Plus / Claude 구독료 지원
+
+### 지원 대상
+- **풀스택 과정 / 클라우드 과정** 교육생
+
+### 지원 내용
+- **ChatGPT Plus 또는 Claude** 월 구독료 지원  
+- **총 지원 금액: $22 (기본 $20 + VAT 10%)**
+
+### 지원 절차
+1. 개인 카드로 구독료 결제
+2. 구글폼 제출 (결제 영수증 첨부)
+3. 환급 일정에 따라 입금
+
+### 구글폼 제출 (매월)
+- **PDF 형태의 카드 매출전표 제출 필수**
+- 반드시 **달러($) 금액 + 원화(₩) 금액**이 함께 표기되어야 함
+
+> 예:  
+> `tami.kim(김현)_과정명 2회차_4월`
+
+### 유의사항
+- 구독 취소하지 않으면 자동 결제 → **교육 종료 후 반드시 구독 취소**
+- 매출전표 외 문자/스크린샷 등은 불인정
+- **국민카드**는 달러·원화가 분리 표기됨 → 고객센터 요청 후 서류 제출 필요
+- 사전 청구기간 외 결제분, 중복/오결제는 **환급 불가**
+- **ChatGPT Plus / Claude / ChatGPT API 중 1개만 선택 가능**
+
+---
+
+## AWS 사용료 지원
+
+### 지원 대상
+- **풀스택 / 클라우드 과정** 교육생
+
+### 이론 과정 지원 (약 2개월)
+| 항목 | 내용 |
+|------|------|
+| 기간 | 2025.01.20 ~ 2025.03.31 |
+| 금액 | 1인당 최대 **15만원 (이론 10만원 + 해커톤 5만원)** |
+| 사용 방식 | 개인 계정 생성 및 사용 |
+| 환급 | 이론 기간 종료 후 일괄 지급 |
+
+### 프로젝트 기간 지원 (약 4개월)
+| 항목 | 내용 |
+|------|------|
+| 기간 | 2025.04.01 ~ 2025.08.01 |
+| 금액 | 팀당 최대 **100만원** |
+| 사용 방식 | 팀 계정 생성 및 사용 |
+| 환급 | 프로젝트 종료 후 일괄 지급 |
+
+### 제출 시 유의사항
+- AWS 인보이스에 반드시 **달러 + 원화 + 사용 기간** 기재 필요
+- 한글 PDF 파일로 결제내역 + 실출금 내역 **병합 제출**
+- **과다 청구 방지**: 사용 후 인스턴스 종료 필수
+
+---
+
+## Colab Pro+ / ChatGPT API 구독료 지원 (AI 과정 전용)
+
+### 지원 대상
+- **인공지능 과정 교육생**
+
+### 지원 내용
+- **Colab Pro+ 구독료** (최대 6개월, 월 $49.99 한도)
+- 또는 **ChatGPT API 사용료** (월 $22 한도)
+
+> ChatGPT Plus, Claude, ChatGPT API 중 **하나만 선택 가능**
+
+### 지원 절차
+1. 개인 카드로 매월 결제
+2. 익월 구글폼 제출
+3. 한 달 후 환급
+
+### 유의사항
+- 지원이 끝나는 다음 달부터는 **반드시 구독 취소**
+- 중복 지원, 중복 결제, 오결제에 대한 책임은 **본인 부담**
+- 개인 이용 중이던 구독 내역에 대한 청구는 불가
+- 환급 청구는 **정해진 시기 내에만 가능**
+
+---
+
+### 꼭 기억하세요
+
+| 항목 | 주의사항 요약 |
+|------|---------------|
+| 결제 증빙 | 반드시 **달러 + 원화** 기재된 카드 매출전표 필요 |
+| 구독 취소 | **교육 종료 후 자동 결제 방지 위해 수동 취소 필수** |
+| 청구 시기 | **정해진 제출 기간 내 제출하지 않으면 환급 불가** |
+| 중복 지원 | ChatGPT Plus, Claude, ChatGPT API 중 **1개만 선택 가능** |
+| AWS | 과다 청구 방지 위해 실습 후 **리소스 종료 필수** |
+
+궁금한 점은 디스코드 공지사항 또는 운영진에게 문의해 주세요.  
+모든 혜택은 정해진 절차에 맞춰 성실히 이행해야만 받을 수 있습니다.
