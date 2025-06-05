@@ -32,21 +32,21 @@ jobs:
             echo "❌ 서비스 재시작 실패" && exit 1
           fi
 
-          - name: Discord Notify
-          if: always()
-          env:
-            DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          run: |
-            STATUS=${{ job.status }}
-            RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-  
-            MESSAGE="🔔 CI/CD 결과: **${STATUS}**\n📦 Repo: \`${{ github.repository }}\`\n🔁 Branch: \`${{ github.ref_name }}\`"
-  
-            if [ "$STATUS" != "success" ]; then
-              MESSAGE="${MESSAGE}\n❌ [실패 로그 보러 가기](${RUN_URL})"
-            fi
-  
-            curl -H "Content-Type: application/json" \
-                 -X POST \
-                 -d "{\"content\": \"${MESSAGE}\"}" \
-                 $DISCORD_WEBHOOK
+    - name: Discord Notify
+      if: always()
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        STATUS=${{ job.status }}
+        RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+        MESSAGE="🔔 CI/CD 결과: **${STATUS}**\n📦 Repo: \`${{ github.repository }}\`\n🔁 Branch: \`${{ github.ref_name }}\`"
+
+        if [ "$STATUS" != "success" ]; then
+        MESSAGE="${MESSAGE}\n❌ [실패 로그 보러 가기](${RUN_URL})"
+        fi
+
+        curl -H "Content-Type: application/json" \
+            -X POST \
+            -d "{\"content\": \"${MESSAGE}\"}" \
+            $DISCORD_WEBHOOK
