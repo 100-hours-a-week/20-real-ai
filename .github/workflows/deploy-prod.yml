@@ -1,0 +1,42 @@
+name: Prod AI Server
+
+on:
+  push:
+    branches: [main] 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v4
+
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        script: |
+          cd /home/ktb-user/20-real-ai
+          git pull origin main
+          source venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+          export GOOGLE_APPLICATION_CREDENTIALS="${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
+          
+          # 벡터스토어 생성 단계
+          if ./vector_store.sh; then
+            echo "✅ Vector store 생성 성공"
+          else
+            echo "❌ Vector store 생성 실패" && exit 1
+          fi
+
+          # 서버 재시작
+          if ./start.sh; then
+            echo "✅ 서비스 재시작 성공"
+          else
+            echo "❌ 서비스 재시작 실패" && exit 1
+          fi
