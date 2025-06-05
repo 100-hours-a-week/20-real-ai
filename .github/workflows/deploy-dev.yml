@@ -25,15 +25,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-          export GOOGLE_APPLICATION_CREDENTIALS="${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
-          
-          # 벡터스토어 생성 단계
-          if ./vector_store.sh; then
-            echo "✅ Vector store 생성 성공"
-          else
-            echo "❌ Vector store 생성 실패" && exit 1
-          fi
-
           # 서버 재시작
           if ./start.sh; then
             echo "✅ 서비스 재시작 성공"
