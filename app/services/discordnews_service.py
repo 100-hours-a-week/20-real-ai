@@ -6,7 +6,7 @@ from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
 
 @traceable(name="DiscordNews Service", inputs={"title": lambda args, kwargs: args[0], "content": lambda args, kwargs: args[1]})
-async def summarize_headiline_discordnews_service(title: str | None, content: str, request_id: str) -> tuple[str, str]:
+async def summarize_headiline_discordnews_service(title: str | None, content: str, request_id: str) -> tuple[str, str, bool]:
     # 제목 조건문
     if title:
         formatted_docs = f"[title]: {title}\n[content]: {content}"
@@ -15,9 +15,9 @@ async def summarize_headiline_discordnews_service(title: str | None, content: st
     # 프롬프트 적용
     prompt = discord_news_prompt.format(docs=formatted_docs)
 
-    isCompleted = True
-    # LLM 호출, 트레이스 이벤트로 프롬프트 로깅
+    # LLM 호출
     response = await get_summarize_response(prompt, request_id)
+    isCompleted = True
 
     # JSON 파싱
     try:
@@ -33,8 +33,6 @@ async def summarize_headiline_discordnews_service(title: str | None, content: st
         run = get_current_run_tree()
         if run:
             run.outputs = {
-                "헤드라인": headline,
-                "요약": summary,
                 "파싱실패원본응답": response
             }
 

@@ -4,7 +4,7 @@ import uuid
 from langsmith import traceable
 
 @traceable(name="DiscordNews Controller", inputs={"제목": lambda args, kwargs: args[0].title, "본문": lambda args, kwargs: args[0].content})
-async def summarize_discord_news(request: DiscordNewsRequest) -> DiscordNewsResponse:
+async def discord_news_controller(request: DiscordNewsRequest) -> DiscordNewsResponse:
     request_id = str(uuid.uuid4())
 
     # 뉴스 요약 서비스 호출

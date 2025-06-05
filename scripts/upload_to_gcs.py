@@ -15,4 +15,4 @@ for filename in os.listdir(source_dir):
     local_path = os.path.join(source_dir, filename)
     blob = bucket.blob(f"{destination_prefix}/{filename}")
     blob.upload_from_filename(local_path)
-    print(f"⬆️ 업로드 완료: {blob.name}")
+    print(f"업로드 완료: {blob.name}")

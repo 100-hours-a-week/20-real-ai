@@ -6,14 +6,14 @@ from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
 
 @traceable(name="Notice Service", inputs={"title": lambda args, kwargs: args[0], "content": lambda args, kwargs: args[1]})
-async def summarize_notice_service(title: str, content: str, request_id: str) -> str:
+async def summarize_notice_service(title: str, content: str, request_id: str) -> tuple[str, bool]:
     formatted_docs = f"[title]: {title}\n[content]: {content}"
     # 프롬프트 적용
     prompt = notice_summary_prompt.format(docs=formatted_docs)
 
-    isCompleted = True
     # LLM 호출
     response = await get_summarize_response(prompt, request_id)
+    isCompleted = True
 
     # JSON 파싱
     try:
@@ -26,7 +26,6 @@ async def summarize_notice_service(title: str, content: str, request_id: str) ->
         run = get_current_run_tree()
         if run:
             run.outputs = {
-                "요약": summary,
                 "파싱실패원본응답": response
             }
     
