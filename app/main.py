@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from app.api.router import api_router
 from app.core.error_handler import add_exception_handlers
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -10,7 +13,8 @@ origins = [
     "http://test.kakaotech.com",
     "https://dev.kakaotech.com",
     "https://www.kakaotech.com",
-    "https://kakaotech.com"
+    "https://kakaotech.com",
+    "https://cadev.kakaotech.com/"
 ]
 
 # CORS 미들웨어 등록

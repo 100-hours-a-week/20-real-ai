@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from app.api.v1.endpoints import chat_router as chat_router_v1, notice_router, discordnews_router
-from app.api.v2.endpoints import chat_router as chat_router_v2
+from app.api.v2.endpoints import chat_router as chat_router_v2, wikinews_router
+from app.api.v3.endpoints import chat_router as chat_router_v3
 
 # API prefix 설정
 api_router = APIRouter()
@@ -16,3 +17,9 @@ api_router.include_router(discordnews_router.router, prefix="/api/v1", tags=["di
 
 # 챗봇 API 변경 -> /api/v2/chatbots
 api_router.include_router(chat_router_v2.router, prefix="/api/v2", tags=["chatbot"])
+
+# 위키 뉴스 API 등록 -> /api/v2/news
+api_router.include_router(wikinews_router.router, prefix="/api/v2", tags=["wikinews"])
+
+# 챗봇 API 변경 (streaming) -> /api/v3/chatbots 
+api_router.include_router(chat_router_v3.router, prefix="/api/v3", tags=["chatbot"])
