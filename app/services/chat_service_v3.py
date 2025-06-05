@@ -5,7 +5,10 @@ from app.models.llm_client import get_chat_response_stream
 from app.core.chat_history import get_session_history, chat_history_to_string
 
 # 상위 2개의 문서를 검색하는 retriever 구성
-retriever = load_vectorstore().as_retriever(search_kwargs={"k": 2})
+retriever = load_vectorstore().as_retriever(
+        search_type="similarity_score_threshold",  
+        search_kwargs={"score_threshold": 0.7, "k": 2}
+    )
 
 # 사용자별 세션 히스토리에 Q/A message 저장 
 async def save_chat_history(userId: int, question: str, answer: str):
