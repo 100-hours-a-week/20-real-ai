@@ -1,7 +1,9 @@
 from app.models.qwen3_loader import tokenizer, llm, sampling_params
 from langsmith import traceable
-from difflib import ndiff
 import re
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 시스템 메시지
 SYSTEM_MESSAGE = "You are a kind and friendly chatbot for announcements who responds based on the previous conversation flow. Always answer in Korean."

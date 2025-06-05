@@ -77,7 +77,7 @@ async def summary_from_document(formatted_docs: str, request_id: str) -> str:
     # 각 청크 요약 및 병합
     summaries = []
     for chunk in chunks:
-       summary_prompt = f"다음 텍스트를 한국어로 각각 3,000자 이내로 요약해 주세요. [본문]:{chunk.page_content}"
+       summary_prompt = f"다음 텍스트를 한국어로 각각 3,000자 이내로 요약해 주세요. `<img>` 태그 또는 이미지 URL이 포함된 HTML 요소는 요약에서 제외해주세요: [본문]:{chunk.page_content}"
        summary = await get_summarize_response(summary_prompt, request_id)
        summaries.append(summary)
 
