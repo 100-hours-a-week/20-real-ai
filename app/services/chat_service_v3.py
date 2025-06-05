@@ -26,6 +26,8 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
     
     # RAG
     docs = retriever.get_relevant_documents(parsed_question)
+    if not docs:
+        return "카카오테크 부트캠프 관련 공지사항만 질문해주세요 😃"
     context = "\n\n".join([doc.page_content for doc in docs])
 
     # 프롬프트 정의 및 LLM 호출
