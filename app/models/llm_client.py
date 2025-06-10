@@ -51,7 +51,6 @@ async def get_chat_response(prompt: str, docs: str, request_id: str) -> str:
     return await llm_generate(prompt_str, request_id)
 
 # 스트리밍 기반 챗봇 응답 함수 
-@traceable(name="Chat LLM Stream", inputs={"질문": lambda args, kwargs: args[0]})
 def get_chat_response_stream(prompt: str, docs, request_id: str):
     sent_text = ""
     prompt_str = build_prompt(prompt)

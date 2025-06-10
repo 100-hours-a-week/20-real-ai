@@ -3,6 +3,8 @@ from app.core.vector_loader import load_vectorstore
 from app.core.chat_history import get_session_history, chat_history_to_string
 from app.models.prompt_template import chatbot_rag_prompt
 from app.models.llm_client import get_chat_response_stream
+from langsmith.run_helpers import get_current_run_tree
+from langsmith import traceable
 
 # 상위 2개의 문서를 검색하는 retriever 구성
 retriever = load_vectorstore().as_retriever(
@@ -16,6 +18,7 @@ async def save_chat_history(userId: int, question: str, answer: str):
     history.add_user_message(question)
     history.add_ai_message(answer)
 
+@traceable(name="Chat LLM Stream", inputs={"질문": lambda args, kwargs: args[0], "답변": lambda args, kwargs: ""})
 async def chat_service_stream(question: str, request_id: str, userId: int):
     # 질문 전처리 (상대 날짜 -> 절대 날짜)
     parsed_question = parse_relative_dates(question)
@@ -42,10 +45,14 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
         yield f"data: {chunk}\n\n"
         answer_collector.append(chunk)
 
+    full_answer = "".join(answer_collector)
+    
+    run = get_current_run_tree()
+    if run:
+        run.add_outputs({"답변": full_answer})
+
     # 스트리밍 종료 알림 이벤트
     yield "event: end_of_stream\ndata: \n\n"
-
-    full_answer = "".join(answer_collector)
     
     # 히스토리 저장
     await save_chat_history(userId, parsed_question, full_answer)
