@@ -18,7 +18,6 @@ async def save_chat_history(userId: int, question: str, answer: str):
     history.add_user_message(question)
     history.add_ai_message(answer)
 
-@traceable(name="Chat LLM Stream", inputs={"질문": lambda args, kwargs: args[0], "답변": lambda args, kwargs: ""})
 async def chat_service_stream(question: str, request_id: str, userId: int):
     # 질문 전처리 (상대 날짜 -> 절대 날짜)
     parsed_question = parse_relative_dates(question)
@@ -46,7 +45,7 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
         answer_collector.append(chunk)
 
     full_answer = "".join(answer_collector)
-    
+
     run = get_current_run_tree()
     if run:
         run.add_outputs({"답변": full_answer})
