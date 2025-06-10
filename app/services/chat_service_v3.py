@@ -18,6 +18,7 @@ async def save_chat_history(userId: int, question: str, answer: str):
     history.add_user_message(question)
     history.add_ai_message(answer)
 
+@traceable(name="Chat Controller V3", inputs={"질문": lambda args, kwargs: args[0]})
 async def chat_service_stream(question: str, request_id: str, userId: int):
     # 질문 전처리 (상대 날짜 -> 절대 날짜)
     parsed_question = parse_relative_dates(question)
@@ -48,7 +49,7 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
 
     run = get_current_run_tree()
     if run:
-        run.add_outputs({"답변": full_answer})
+        run.add_outputs({"request_id": request_id,"답변": full_answer})
 
     # 스트리밍 종료 알림 이벤트
     yield "event: end_of_stream\ndata: \n\n"
