@@ -28,6 +28,7 @@ async def generate_wikinews(title: str, content: str, request_id: str) -> dict:
 
     try:
         response = re.sub(r'(\\n|\\t|\\r|\n|\t|\r)+', '', response).strip()
+        response = re.sub(r'(?<=["}])\s[^\w\s\d"\'{}[],.]+(?=\s})', '', response)
         parsed = json.loads(response)
 
         headline = parsed.get("headline", "")
