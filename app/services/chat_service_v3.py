@@ -5,6 +5,7 @@ from app.models.prompt_template import chatbot_rag_prompt
 from app.models.llm_client import get_chat_response_stream
 from langsmith.run_helpers import get_current_run_tree
 from langsmith import traceable
+from app.models.safety_model import classify_prompt
 
 # 상위 2개의 문서를 검색하는 retriever 구성
 retriever = load_vectorstore().as_retriever(
@@ -20,6 +21,11 @@ async def save_chat_history(userId: int, question: str, answer: str):
 
 @traceable(name="Chat Controller V3", inputs={"질문": lambda args, kwargs: args[0]})
 async def chat_service_stream(question: str, request_id: str, userId: int):
+    safety_token = classify_prompt(question)
+    if safety_token != "<SAFE>":
+        yield "data: 카카오테크 부트캠프 관련 공지사항만 질문해주세요 🥺\n\n"
+        yield "event: end_of_stream\ndata: \n\n"
+
     # 질문 전처리 (상대 날짜 -> 절대 날짜)
     parsed_question = parse_relative_dates(question)
         

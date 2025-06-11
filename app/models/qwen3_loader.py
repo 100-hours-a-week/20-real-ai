@@ -10,7 +10,8 @@ tokenizer = AutoTokenizer.from_pretrained(
 engine_args = AsyncEngineArgs(
     model="Qwen/Qwen3-14B-AWQ",
     gpu_memory_utilization=0.8,
-    tensor_parallel_size=1
+    tensor_parallel_size=1,
+    max_num_seqs=128
 )
 
 llm = AsyncLLMEngine.from_engine_args(engine_args)
