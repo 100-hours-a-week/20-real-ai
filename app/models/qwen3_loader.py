@@ -11,6 +11,7 @@ engine_args = AsyncEngineArgs(
     model="Qwen/Qwen3-8B-AWQ",
     gpu_memory_utilization=0.8,
     tensor_parallel_size=1,
+    max_num_batched_tokens = 16384,
     max_num_seqs=128
 )
 
