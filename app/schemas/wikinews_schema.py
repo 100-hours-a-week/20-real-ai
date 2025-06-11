@@ -1,8 +1,7 @@
 from pydantic import BaseModel
 
 class WikiNewsRequest(BaseModel):
-    title: str
-    content: str
+    uuid: str
     presignedUrl: str
 
 class WikiNewsData(BaseModel):
