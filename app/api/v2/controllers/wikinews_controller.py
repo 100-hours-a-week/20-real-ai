@@ -6,7 +6,7 @@ from langsmith import traceable
 def wiki_news_controller(request: WikiNewsRequest) -> WikiNewsResponse:
 
     # 헤드라인, 요약, 뉴스, 이미지 서비스 호출
-    headline, summary, news, imageUrl, isCompleted = finalize_wikinews(request.presignedUrl, request.uuid)
+    headline, summary, news, imageUrl, isCompleted = finalize_wikinews(request.uuid, request.presignedUrl)
 
     # 표준 응답 스키마로 래핑하여 반환
     return WikiNewsResponse(
