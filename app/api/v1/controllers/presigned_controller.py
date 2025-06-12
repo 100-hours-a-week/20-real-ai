@@ -1,5 +1,5 @@
 from app.services.wikinews_generate import generate_wikinews
-from app.schemas.presigned_schema import PresignedRequest, PresignedResponse
+from app.schemas.presigned_schema import PresignedRequest, PresignedResponse, PresignedData
 import uuid
 
 async def presigned_controller(request: PresignedRequest) -> PresignedResponse:
@@ -10,7 +10,6 @@ async def presigned_controller(request: PresignedRequest) -> PresignedResponse:
 
     # 표준 응답 스키마로 래핑하여 반환
     return PresignedResponse(
-        fileName=fileName,
-        contentType=contentType,
-        uuid=request_id
+        message="뉴스 생성이 완료되었습니다.",
+        data=PresignedData(fileName=fileName, contentType=contentType, uuid=request_id)
     )

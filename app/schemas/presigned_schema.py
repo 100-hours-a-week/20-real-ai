@@ -4,7 +4,11 @@ class PresignedRequest(BaseModel):
     title: str
     content: str
 
-class PresignedResponse(BaseModel):
+class PresignedData(BaseModel):
     fileName: str
     contentType: str
     uuid: str
+
+class PresignedResponse(BaseModel):
+    message: str
+    data: PresignedData
