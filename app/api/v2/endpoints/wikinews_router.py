@@ -6,6 +6,6 @@ router = APIRouter()
 
 # 위키 뉴스 요약 API 엔드포인트
 @router.post("/news", response_model=WikiNewsResponse)
-async def wiki_news_endpoint(request: WikiNewsRequest):
+def wiki_news_endpoint(request: WikiNewsRequest):
     # 위키 뉴스 요약 컨트롤러 호출
-    return await wiki_news_controller(request)
+    return wiki_news_controller(request)
