@@ -3,16 +3,14 @@ from transformers import AutoTokenizer
 
 # 토크나이저 로딩 (프롬프트용 메시지 생성에 사용)
 tokenizer = AutoTokenizer.from_pretrained(
-    "Qwen/Qwen3-8B-AWQ",
+    "Qwen/Qwen3-14B-AWQ",
     trust_remote_code=True
 )
 
 engine_args = AsyncEngineArgs(
-    model="Qwen/Qwen3-8B-AWQ",
+    model="Qwen/Qwen3-14B-AWQ",
     gpu_memory_utilization=0.8,
-    tensor_parallel_size=1,
-    max_num_batched_tokens = 16384,
-    max_num_seqs=128
+    tensor_parallel_size=1
 )
 
 llm = AsyncLLMEngine.from_engine_args(engine_args)
