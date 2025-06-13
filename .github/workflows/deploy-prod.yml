@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
 
           # 서버 재시작
-          if ./start.sh; then
+          if ./cicd_start.sh; then
             echo "✅ 서비스 재시작 성공"
           else
             echo "❌ 서비스 재시작 실패" && exit 1
