@@ -6,7 +6,6 @@ import uuid
 from langsmith import traceable
 from langsmith.run_helpers import get_current_run_tree
 
-@traceable(name="Chat Controller V3", inputs={"질문": lambda args, kwargs: args[0].question})
 async def chat_controller_stream(req: ChatRequest):
     request_id = str(uuid.uuid4())
     userId = req.userId
@@ -14,11 +13,6 @@ async def chat_controller_stream(req: ChatRequest):
     # 질문 유효성 검사
     if not req.question.strip():
         raise HTTPException(status_code=400, detail="질문 내용이 비어 있습니다.")
-
-    # LangSmith run 트리 가져와 request_id 기록
-    run = get_current_run_tree()
-    if run:
-        run.outputs = {"request_id": request_id}
 
     # chat_service_stream() 호출 → “SSE 이벤트 스트림”
     event_generator = chat_service_stream(req.question, request_id, userId)
