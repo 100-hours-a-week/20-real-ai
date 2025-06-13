@@ -4,5 +4,6 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 def get_embedder():
     return HuggingFaceEmbeddings(
         model_name="intfloat/multilingual-e5-base",
-        model_kwargs={"device": "cpu"} 
+        model_kwargs={"device": "cpu"},
+        encode_kwargs={'normalize_embeddings':True},
     )
