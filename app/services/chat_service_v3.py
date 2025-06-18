@@ -61,6 +61,7 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
     if not docs:
         yield "data: 카카오테크 부트캠프 관련 공지사항만 질문해주세요 😃\n\n"
         yield "event: end_of_stream\ndata: \n\n"
+        return
     context = "\n\n".join([doc.page_content for doc in docs])
 
     # 프롬프트 정의 및 LLM 호출
