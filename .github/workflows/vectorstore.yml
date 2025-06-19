@@ -1,20 +1,20 @@
-name: Prod AI Server
+name: Vector Store Update
 
 on:
   push:
     branches: [main]
-    paths-ignore:
+    paths:
       - 'docs/**'
 
 jobs:
-  deploy:
+  update-vector-store:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout source
       uses: actions/checkout@v4
 
-    - name: Deploy via SSH
+    - name: Deploy via SSH (vector store)
       uses: appleboy/ssh-action@v1
       with:
         host: ${{ secrets.SERVER_HOST }}
@@ -24,13 +24,11 @@ jobs:
           cd /home/ktb-user/20-real-ai
           git pull origin main
           source venv/bin/activate
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-          if ./cicd_start.sh; then
-            echo "✅ 서비스 재시작 성공"
+          export GOOGLE_APPLICATION_CREDENTIALS="${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
+          if ./vector_store.sh; then
+            echo "✅ Vector store 생성 성공"
           else
-            echo "❌ 서비스 재시작 실패" && exit 1
+            echo "❌ Vector store 생성 실패" && exit 1
           fi
 
     - name: Discord Notify
@@ -40,7 +38,7 @@ jobs:
       run: |
         STATUS=${{ job.status }}
         RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-        MESSAGE="🔔 AI 서버 배포 결과: **${STATUS}**\n📦 Repo: \`${{ github.repository }}\`\n🔁 Branch: \`${{ github.ref_name }}\`"
+        MESSAGE="🔔 AI 서버 Vector store 결과: **${STATUS}**\n📦 Repo: \`${{ github.repository }}\`\n🔁 Branch: \`${{ github.ref_name }}\`"
         if [ "$STATUS" != "success" ]; then
           MESSAGE="${MESSAGE}\n❌ [실패 로그 보러 가기](${RUN_URL})"
         fi
