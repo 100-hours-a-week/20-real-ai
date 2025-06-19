@@ -23,14 +23,16 @@ def get_recent_range(now: arrow.Arrow, days: int = 3):
 # 상대 날짜 문자열 → 절대 날짜로 변환 (그리고 마감일 계산)
 def parse_relative_dates(text: str, tz: str = 'Asia/Seoul') -> str:
     now = arrow.now(tz)
+    date_filter = {}
 
-    # 최근 키워드 처리 (최근 = 3일 이내)
-    if "최근" in text:
+    # 최근/최신 키워드 처리 
+    if "최근" in text or "최신" in text:
         start_date, end_date = get_recent_range(now, days=3)
         start_fmt = start_date.format('YYYY-MM-DD')
         end_fmt = end_date.format('YYYY-MM-DD')
-        replacement = f"{start_fmt} ~ {end_fmt} 기준 (최근 3일)"
-        text = re.sub(r"최근", replacement, text)
+        replacement = f"{start_fmt} ~ {end_fmt} 기간"
+        text = re.sub(r"(최근|최신)", replacement, text)
+        date_filter["start_date"] = start_fmt
 
     # 기본 날짜 치환 패턴
     patterns = {
@@ -86,4 +88,4 @@ def parse_relative_dates(text: str, tz: str = 'Asia/Seoul') -> str:
         except Exception:
             continue
 
-    return text
+    return text, date_filter
