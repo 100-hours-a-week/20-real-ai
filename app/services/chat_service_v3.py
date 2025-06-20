@@ -37,7 +37,7 @@ def create_ensemble_retriever(retrievers, weights=[0.7, 0.3]):
 # 최종 리트리버 생성
 retriever = create_ensemble_retriever(
     [create_bm25_retriever(header_splitted_docs), create_faiss_retriever(vectorstore)],
-    weights=[0.7, 0.3]
+    weights=[0.3, 0.7]
     )
 
 # 사용자별 세션 히스토리에 Q/A message 저장 
