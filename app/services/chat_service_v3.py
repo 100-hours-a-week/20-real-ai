@@ -27,7 +27,7 @@ def create_faiss_retriever(vectorstore):
     return retriever
 
 # 앙상블 리트리버 생성 함수
-def create_ensemble_retriever(retrievers, weights=[0.7, 0.3]):
+def create_ensemble_retriever(retrievers, weights):
     ensemble_retriever = EnsembleRetriever(
         retrievers=retrievers,
         weights=weights
