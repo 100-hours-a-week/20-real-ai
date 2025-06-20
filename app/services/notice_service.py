@@ -13,7 +13,7 @@ async def summarize_notice_service(title: str, content: str, request_id: str) ->
 
     # LLM 호출
     response = await get_summarize_response(prompt, request_id)
-    isCompleted = True
+    isCompleted = False
 
     # JSON 파싱
     try:
