@@ -77,16 +77,16 @@ QDRANT_URL = os.getenv("QDRANT_URL")
 
 # Qdrant 클라이언트 초기화
 client = QdrantClient(
-    url=QDRANT_API_KEY,
-    api_key=QDRANT_URL
+    url=QDRANT_URL,
+    api_key=QDRANT_API_KEY
 )
 
 # QdrantVectorStore를 통해 벡터스토어 생성 및 데이터 삽입
 vectorstore = QdrantVectorStore.from_documents(
     documents=header_splitted_docs,
     embedding=embedder,
-    url=QDRANT_API_KEY,
-    api_key=QDRANT_URL,
+    url=QDRANT_URL,
+    api_key=QDRANT_API_KEY,
     collection_name="ChoonChat",
     force_recreate=True  # 기존 컬렉션을 삭제하고, 새로운 벡터 차원에 맞게 다시 생성
 )

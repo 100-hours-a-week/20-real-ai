@@ -8,7 +8,7 @@ from langchain.retrievers import BM25Retriever, EnsembleRetriever
 from qdrant_client import models
 import arrow
 from langchain.schema import Document
-from scripts.qdrant.create_vectorstroe import client, vectorstore, header_splitted_docs
+from scripts.qdrant.create_vectorstore import client, vectorstore, header_splitted_docs
 
 # 앙상블 리트리버
 def create_bm25_retriever(header_splitted_docs):
