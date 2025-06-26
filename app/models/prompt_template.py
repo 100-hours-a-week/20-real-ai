@@ -45,9 +45,6 @@ chatbot_rag_prompt = """
 [Context]:
 {context}
 
-[Metadata]:
-{metadata}
-
 [Question]:
 {question}
 """
