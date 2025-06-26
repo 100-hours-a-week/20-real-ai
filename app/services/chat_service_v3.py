@@ -42,11 +42,9 @@ retriever = create_ensemble_retriever(
 
 # Qdrant 필터링
 def get_documents_by_qdrant(client, collection_name: str, tz: str = 'Asia/Seoul'):
-    # 현재 날짜를 '"YYYYMMDD"' 형식으로 구함
     today_int = int(arrow.now(tz).format("YYYYMMDD"))
 
-    # 날짜 필터링 조건: date_int < today
-    scroll_filter = models.Filter(
+    search_filter = models.Filter(
         must=[
             models.FieldCondition(
                 key="metadata.date_int",
@@ -55,21 +53,21 @@ def get_documents_by_qdrant(client, collection_name: str, tz: str = 'Asia/Seoul'
         ]
     )
 
-    # Qdrant에서 가장 최근 날짜의 문서 3개 가져오기
-    points, _ = client.scroll(
-    collection_name=collection_name,      # 검색할 Qdrant 컬렉션 이름
-    limit=3,                              # 문서 3개
-    with_payload=True,                    # 문서 내용 포함
-    with_vectors=False,                   # 벡터 정보는 제외
-    scroll_filter=scroll_filter
+    search_result = client.search(
+        collection_name=collection_name,
+        query_vector=[0.0] * 768,  # dummy vector for non-semantic search
+        limit=3,
+        with_payload=True,
+        with_vectors=False,
+        query_filter=search_filter
     )
 
-    # date_int 기준 내림차순 정렬 (최신이 먼저)
+    # date_int 기준 내림차순 정렬
     sorted_points = sorted(
-        points,
+        search_result,
         key=lambda p: p.payload["metadata"].get("date_int", 0),
         reverse=True
-        )
+    )
 
     return sorted_points
 
