@@ -1,6 +1,7 @@
 from app.core.date_utils import parse_relative_dates
 from app.core.vector_loader import load_vectorstore
 from app.core.chat_history import get_session_history, chat_history_to_string
+from app.core.recent_docs_cache import get_top_recent_docs
 from app.models.prompt_template import chatbot_rag_prompt
 from app.models.llm_client import get_chat_response_stream
 from langsmith.run_helpers import get_current_run_tree
@@ -50,7 +51,7 @@ async def save_chat_history(userId: int, question: str, answer: str):
 async def chat_service_stream(question: str, request_id: str, userId: int):
 
     # 질문 전처리 (상대 날짜 -> 절대 날짜)
-    parsed_question, date_filter = parse_relative_dates(question)
+    parsed_question = parse_relative_dates(question)
         
     # 사용자 히스토리 로딩 및 문자열 반환
     history = get_session_history(userId)
@@ -58,23 +59,18 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
         
     # 리트리버를 통해 질문에 관련된 문서를 BM25 + FAISS 앙상블 방식으로 검색
     docs = retriever.get_relevant_documents(parsed_question)
+    
     if not docs:
         yield "data: 카카오테크 부트캠프 관련 공지사항만 질문해주세요 😃\n\n"
         yield "event: end_of_stream\ndata: \n\n"
-        return   
-    
-    # 문서의 날짜 메타데이터 기준으로 최근 문서만 필터링
-    if date_filter.get("start_date"):
-        docs = [
-            doc for doc in docs
-            if doc.metadata.get("date") and doc.metadata["date"] >= date_filter["start_date"]
-        ]
-        if not docs:
-            yield "data: 최근 3일 이내의 공지사항은 없습니다 😅\n\n"
-            yield "event: end_of_stream\ndata: \n\n"
-            return
+        return
 
     context = "\n\n".join([doc.page_content for doc in docs])
+
+    # "최근" 또는 "최신" 키워드가 원래 질문에 포함되어 있으면 top_docs 추가 
+    top_docs = get_top_recent_docs(k=3)
+    if "최근" in question or "최신" in question:
+        context += "\n\n" + "\n\n".join([doc.page_content for doc in top_docs])
 
     # 프롬프트 정의 및 LLM 호출
     prompt = chatbot_rag_prompt.format(history=history_str, context=context, question=parsed_question)
