@@ -2,9 +2,7 @@ from fastapi import HTTPException
 from app.services.notice_service import summarize_notice_service
 from app.schemas.notice_schema import NoticeRequest, NoticeResponse, NoticeData
 import uuid
-from langsmith import traceable
 
-@traceable(name="Notice Controller", inputs={"제목": lambda args, kwargs: args[0].title, "본문": lambda args, kwargs: args[0].content})
 async def notice_controller(request: NoticeRequest) -> NoticeResponse:
     request_id = str(uuid.uuid4())
 

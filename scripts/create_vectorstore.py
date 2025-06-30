@@ -30,11 +30,7 @@ def extract_date_from_markdown(text: str) -> str | None:
 
 # 3. Markdown 문서들을 헤더 기준으로 분할
 def split_docs_by_markdown_headers(docs: list[Document]) -> list[Document]:
-    headers_to_split_on = [
-        ("#", "Header 1"),
-        ("##", "Header 2"),
-        ("###", "Header 3"),
-    ]
+    headers_to_split_on = [("#", "Header 1")]
     splitter = MarkdownHeaderTextSplitter(
         headers_to_split_on=headers_to_split_on,
         strip_headers=False

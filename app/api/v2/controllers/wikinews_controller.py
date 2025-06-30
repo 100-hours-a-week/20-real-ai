@@ -2,9 +2,7 @@ from fastapi import HTTPException
 from app.schemas.wikinews_schema import WikiNewsRequest, WikiNewsResponse, WikiNewsData
 from app.services.wikinews_service import generate_wikinews_service
 import uuid
-from langsmith import traceable
 
-@traceable(name="WikiNews Controller", inputs={"제목": lambda args, kwargs: args[0].title, "본문": lambda args, kwargs: args[0].content})
 async def wiki_news_controller(request: WikiNewsRequest) -> WikiNewsResponse:
     request_id = str(uuid.uuid4())
 

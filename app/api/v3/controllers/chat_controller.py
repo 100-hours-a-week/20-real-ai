@@ -3,8 +3,6 @@ from fastapi.responses import StreamingResponse
 from app.schemas.chat_schema_v3 import ChatRequest
 from app.services.chat_service_v3 import chat_service_stream
 import uuid
-from langsmith import traceable
-from langsmith.run_helpers import get_current_run_tree
 
 async def chat_controller_stream(req: ChatRequest):
     request_id = str(uuid.uuid4())

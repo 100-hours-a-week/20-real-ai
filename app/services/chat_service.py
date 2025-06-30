@@ -10,4 +10,4 @@ async def chat_service(question: str, request_id: str) -> str:
     docs = retriever.get_relevant_documents(parsed_question)
     context = "\n\n".join([doc.page_content for doc in docs])
     prompt = chatbot_rag_prompt.format(context=context, question=parsed_question)
-    return await get_chat_response(prompt, docs, request_id)
+    return await get_chat_response(prompt, request_id)

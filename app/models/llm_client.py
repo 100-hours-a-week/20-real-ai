@@ -46,12 +46,13 @@ async def get_summarize_response(prompt: str, request_id: str) -> str:
 
 # 문서 기반 챗봇 응답 함수
 @traceable(name="Chat LLM Response", inputs={"질문": lambda args, kwargs: args[0]})
-async def get_chat_response(prompt: str, docs: str, request_id: str) -> str:
+async def get_chat_response(prompt: str, request_id: str) -> str:
     prompt_str = build_prompt(prompt)
     return await llm_generate(prompt_str, request_id)
 
 # 스트리밍 기반 챗봇 응답 함수 
-def get_chat_response_stream(prompt: str, docs, request_id: str):
+@traceable(name="Chat LLM Response V3", inputs={"질문": lambda args, kwargs: args[0]})
+def get_chat_response_stream(prompt: str, request_id: str):
     sent_text = ""
     prompt_str = build_prompt(prompt)
     agen = llm.generate(prompt_str, sampling_params, request_id=request_id)
