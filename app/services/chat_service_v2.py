@@ -26,13 +26,13 @@ async def chat_service(question: str, request_id: str, userId: int):
     
     # RAG
     docs = retriever.get_relevant_documents(parsed_question)
-    if not docs:
-        return "카카오테크 부트캠프 관련 공지사항만 질문해주세요 😃"
+    # if not docs:
+    #     return "카카오테크 부트캠프 관련 공지사항만 질문해주세요 😃"
     context = "\n\n".join([doc.page_content for doc in docs])
 
     # 프롬프트 정의 및 LLM 호출
     prompt = chatbot_rag_prompt.format(history=history_str, context=context, question=parsed_question)
-    result = await get_chat_response(prompt, docs, request_id)
+    result = await get_chat_response(prompt, request_id)
     
     # 히스토리 저장
     await save_chat_history(userId, parsed_question, result)
