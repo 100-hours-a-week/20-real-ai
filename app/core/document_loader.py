@@ -20,7 +20,12 @@ def extract_date_from_markdown(text: str) -> str | None:
 
 # Markdown 문서들을 헤더 기준으로 분할
 def load_and_split_markdown_docs() -> list[Document]:
-    loader = TextLoader("/content/notice.md", encoding="utf-8")
+    loader = DirectoryLoader(
+        path="docs",
+        glob="**/*.md",
+        loader_cls=TextLoader,
+        use_multithreading=True,
+    )
     docs = loader.load()
 
     splitter = MarkdownHeaderTextSplitter(
