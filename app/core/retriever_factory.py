@@ -23,4 +23,4 @@ def create_faiss_retriever(vectorstore):
 def create_ensemble_retriever(weights=(0.3, 0.7)):
     bm25 = create_bm25_retriever(header_splitted_docs)
     faiss = create_faiss_retriever(vectorstore)
-    return EnsembleRetriever(retrievers=[bm25, faiss], weights=list(weights))
+    return EnsembleRetriever(retrievers=[bm25, faiss], weights=list(weights), k=3)

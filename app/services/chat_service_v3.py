@@ -1,5 +1,4 @@
 from app.core.date_utils import parse_relative_dates
-from app.core.vector_loader import load_vectorstore
 from app.core.chat_history import get_session_history, chat_history_to_string
 from app.core.recent_docs_cache import get_top_recent_docs
 from app.core.retriever_factory import create_ensemble_retriever
@@ -7,7 +6,6 @@ from app.models.prompt_template import chatbot_rag_prompt
 from app.models.llm_client import get_chat_response_stream
 from langsmith.run_helpers import get_current_run_tree
 from langsmith import traceable
-from scripts.create_vectorstore import header_splitted_docs, vectorstore
 
 # 앙상블 리트리버
 retriever = create_ensemble_retriever()
@@ -18,7 +16,7 @@ async def save_chat_history(userId: int, question: str, answer: str):
     history.add_user_message(question)
     history.add_ai_message(answer)
 
-@traceable(name="Chat Controller V3", inputs={"질문": lambda args, kwargs: args[0]})
+@traceable(name="Chat Service V3", inputs={"질문": lambda args, kwargs: args[0]})
 async def chat_service_stream(question: str, request_id: str, userId: int):
 
     # 질문 전처리 (상대 날짜 -> 절대 날짜)
@@ -47,7 +45,7 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
     prompt = chatbot_rag_prompt.format(history=history_str, context=context, question=parsed_question)
     
     # vLLM 스트리밍 API 호출 
-    agen = get_chat_response_stream(prompt, docs, request_id)
+    agen = get_chat_response_stream(prompt, request_id)
 
     answer_collector = []
     async for chunk in agen:

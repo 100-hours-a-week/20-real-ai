@@ -16,7 +16,6 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-
 @traceable(name="WikiNews Service", inputs={"title": lambda args, kwargs: args[0], "content": lambda args, kwargs: args[1]})
 async def generate_wikinews_service(title: str, content: str, presignedUrl: str, request_id: str) -> tuple[str, str, str, str, bool]:
     formatted_docs = f"[title]: {title}\n[content]: {content}"
