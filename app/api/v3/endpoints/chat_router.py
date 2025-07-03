@@ -1,8 +1,11 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from app.schemas.chat_schema_v3 import ChatRequest
 from app.api.v3.controllers.chat_controller import chat_controller_stream
+from app.core.auth import verify_api_key
 
-router = APIRouter()
+router = APIRouter(
+    dependencies=[Depends(verify_api_key)]
+)
 
 # 챗봇 질문 응답 API 엔드포인트
 @router.post("/chatbots")
