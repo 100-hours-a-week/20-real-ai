@@ -6,6 +6,7 @@ from app.models.prompt_template import chatbot_rag_prompt
 from app.models.llm_client import get_chat_response_stream
 from langsmith.run_helpers import get_current_run_tree
 from langsmith import traceable
+from app.core.llm_validatoin import validate_llm_response
 
 # 앙상블 리트리버
 retriever = create_ensemble_retriever()
@@ -53,6 +54,13 @@ async def chat_service_stream(question: str, request_id: str, userId: int):
         answer_collector.append(chunk)
 
     full_answer = "".join(answer_collector)
+
+    is_valid, _ = validate_llm_response(parsed_question, full_answer)
+
+    if not is_valid:
+        fallback_msg = "조금 엉뚱한 답변일 수 있어요. 다시 질문해 주시면 더 정확히 도와드릴게요 😊"
+        yield f"data: {fallback_msg}\n\n"
+        full_answer = fallback_msg
 
     run = get_current_run_tree()
     if run:
