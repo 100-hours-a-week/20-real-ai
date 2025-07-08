@@ -24,3 +24,13 @@ vector/
 
 # Logs
 *.log
+
+# 비공개 키 파일
+keys/
+
+# !/bin/bash
+start.sh
+
+# coverage.py coverage result
+.coverage
+htmlcov/

@@ -26,3 +26,6 @@ holidays==0.46
 accelerate
 torch
 rank_bm25>=0.2.2
+pytest
+pytest-asyncio
+httpx
