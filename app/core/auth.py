@@ -1,6 +1,9 @@
 from fastapi import Depends, HTTPException, status
 from fastapi.security import APIKeyHeader
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 API_KEY_NAME = "x-api-key"
 API_KEY_VALUE = os.getenv("API_KEY")
