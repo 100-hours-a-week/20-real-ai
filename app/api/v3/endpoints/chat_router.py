@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 from app.schemas.chat_schema_v3 import ChatRequest
 from app.api.v3.controllers.chat_controller import chat_controller_stream
 
