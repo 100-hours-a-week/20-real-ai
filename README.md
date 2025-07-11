@@ -116,7 +116,7 @@ pytest tests/test_chat_api.py -s
 
 > 본 프로젝트의 전체 설계 구조, 개발 과정, 기능 흐름 등이 담긴 기술 문서는 아래 위키에서 확인할 수 있습니다.
 
-📎 [춘이네 비서실 위키 바로가기](https://your-wiki-url.com/chunibot)
+📎 [춘이네 비서실 위키 바로가기](https://github.com/100-hours-a-week/20-real-wiki/wiki)
 
 위키에는 다음 항목들이 정리되어 있습니다:
 - 전체 개발 일정과 아키텍처 모듈 구성
