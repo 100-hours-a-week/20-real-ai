@@ -32,7 +32,12 @@ httpx
 opentelemetry-api
 opentelemetry-sdk
 opentelemetry-instrumentation-fastapi
-opentelemetry-instrumentation-requests
+opentelemetry-instrumentation
+opentelemetry-exporter-otlp-proto-common
 opentelemetry-exporter-otlp-proto-http
+opentelemetry-instrumentation-asgi
+opentelemetry-instrumentation-requests
+opentelemetry-semantic-conventions
+opentelemetry-util-http
 opentelemetry-instrumentation-system-metrics
 psutil
