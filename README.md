@@ -1,9 +1,7 @@
-# 💛 춘이네 비서실 🤎 – KakaoTech BootCamp 전용 AI 비서 서비스
+# 💛 춘이네 비서실 🤎 <br> KakaoTech BootCamp 전용 AI 비서 서비스
 
 카카오테크부트캠프 공지사항을 **더 빠르게, 더 쉽게** 확인하고  
 질의응답, 요약, 뉴스 생성까지 가능한 **RAG + 로컬 LLM 기반 AI 비서 시스템**입니다.
-
-<img src="https://media.discordapp.net/attachments/1384817448846491719/1393110511574450278/2025-07-11_15.03.40.png?ex=6871fac4&is=6870a944&hm=d844e982ccf4c98972c6386677af7a40da98a2412d43f8b6dbc8e6fcb97680b8&=&format=webp&quality=lossless&width=688&height=1604" width="45%"/> <img src="https://cdn.discordapp.com/attachments/1384817448846491719/1393111304067219566/2025-07-11_15.06.50.png?ex=6871fb81&is=6870aa01&hm=f99394ad3019389b8b5be694783fc93921e1551e219763272c7575b44c9dbb25&" width="45%"/>
 
 <br>
 
@@ -124,3 +122,21 @@ pytest tests/test_chat_api.py -s
 - 기능별 처리 로직 및 내부 호출 구조
 - 모델 서빙, 스트리밍 및 최적화 설계
 - LangSmith 기반 디버깅 및 트레이싱 전략
+
+<br>
+
+## 🖥️ 서비스 화면
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://media.discordapp.net/attachments/1384817448846491719/1398533556665319578/image.png?ex=6885b55f&is=688463df&hm=7c9fc756bbf91f7cfe1067c0ec8bdac8e17bd5247eb73324b9bed481a9ecd7b4&=&format=webp&quality=lossless&width=902&height=1606" width="100%"/>
+      <br/>
+      <div><strong>챗봇 화면</strong></div>
+    </td>
+    <td align="center">
+      <img src="https://media.discordapp.net/attachments/1384817448846491719/1398533507550019604/image.png?ex=6885b553&is=688463d3&hm=979c6c849a378545679f81fe1bbe625cd5078e23fd9e0d7076528a167c843a01&=&format=webp&quality=lossless&width=902&height=1606" width="100%"/>
+      <br/>
+      <div><strong>위키뉴스 화면</strong></div>
+    </td>
+  </tr>
+</table>
